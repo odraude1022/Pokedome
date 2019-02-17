@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import App from '../App'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class Name extends React.Component {
   state = {error: null, name: null, types: null, stats: null , moves: null, pokemon: this.props.pokemon || {}, query: ''}
@@ -42,7 +42,6 @@ class Name extends React.Component {
           stats: null,
           moves: null});
       })
-      console.log(this.state.pokemon);
   }
   render() {
   const { pokemon } = this.state;
@@ -78,7 +77,7 @@ class Name extends React.Component {
             <h2>Moveset</h2>
             <ul>
               {pokemon.moves.map(move => (
-                <li key={move.move.name}>{this.capitalize(move.move.name)}</li>
+                <li key={move.move.name}><Link to={`/move/${move.move.name}`}>{this.capitalize(move.move.name)}</Link></li>
               ))}
             </ul>
           </div>}
