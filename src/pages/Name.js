@@ -24,7 +24,7 @@ class Name extends React.Component {
       ).catch(error => {
         this.setState({
           pokemon: {},
-          name: 'Not Found',
+          name: '',
           error: error,
           types: null,
           stats: null,
@@ -93,7 +93,7 @@ class Name extends React.Component {
             src={this.state.pokemon.sprites.back_default}
             alt='sprite of pokemon from the back'/>
             <p>Type: {pokemon.types.map( type => (
-                <a key={type.type.name}> {this.capitalize(type.type.name)} </a>
+                <a key={type.type.name}><Link to={`/type/${type.type.name}`}> {this.capitalize(type.type.name)} </Link> </a>
             ))}</p>
             {/*Link to Type page*/}
             <h2>Base Stats</h2>

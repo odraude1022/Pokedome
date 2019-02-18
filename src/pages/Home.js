@@ -4,7 +4,6 @@ import './Home.css'
 import Pikachu from './pikachu_waving.gif'
 import Poke from './Pokeball.svg'
 import Unknown from './unknown.gif'
-import Pokemongo from './pokemongo.gif'
 
 
 
