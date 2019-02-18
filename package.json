@@ -5,9 +5,14 @@
   "dependencies": {
     "pokedex-promise-v2": "^3.1.1",
     "react": "^16.8.2",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.8.2",
+    "react-image": "^2.0.0",
+    "react-images": "^0.5.19",
+    "react-player": "^1.9.3",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5"
+    "react-scripts": "2.1.5",
+    "react-simple-animate": "^2.6.4"
   },
   "scripts": {
     "start": "react-scripts start",

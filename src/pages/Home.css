@@ -1,3 +1,103 @@
-.body{
-  background-image: image("https://wallpaperplay.com/walls/full/9/c/f/58436.jpg");
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+@import url('https://fonts.googleapis.com/css?family=Audiowide|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+body{
+  background-image: url("http://getwallpapers.com/wallpaper/full/0/8/a/936884-pokemon-white-wallpaper-1920x1080-for-ios.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Audiowide', cursive, 'Open Sans', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+
+a:link {
+  color: red;
+}
+a:visited {
+  color: white;
+}
+a:hover {
+  color: yellow;
+}
+a:active {
+  color: blue;
+}
+
+h1 {
+   font-size: 66px;
+   word-spacing: 5px;
+   text-shadow: 5px 6px white;
+   animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  30% {
+    opacity: 0;
+  }
+}
+
+
+
+#left{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: -75%;
+}
+
+#center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: -15%;
+     max-width: 100%;
+       position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+}
+
+
+#Pikachu {
+  position: relative;
+  margin-left: 80%;
+  margin-top: 10;
+}
+
+#navbars{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-basis: 100%;
+  max-width: 100%;
+  margin: auto;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+#Ball{
+  margin-left: 260%;
+  margin-top: -65%;
+   max-width: 100%;
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+}
+
+
+#Ball2{
+  margin-left: -520%;
+  margin-top: -66%;
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
 }
