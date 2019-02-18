@@ -5,8 +5,8 @@ import './Navbar.css'
 const Navbar = () => {
   return(
     <div class="links">
-      <Link to="/">Home</Link>  |  <Link to="/type">Search By Type</Link>  |  
-      <Link to="/name">Search By Name</Link>  |  
+      <Link to="/">Home</Link>  |  <Link to="/type/:type">Search By Type</Link>  |  
+      <Link to="/name/:name">Search By Name</Link>  |
       <Link to="/move/:move">Search Moves</Link>
     </div>
   )
