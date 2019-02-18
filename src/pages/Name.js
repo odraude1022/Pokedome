@@ -6,6 +6,34 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 class Name extends React.Component {
   state = {error: null, name: null, types: null, stats: null , moves: null, pokemon: this.props.pokemon || {}, query: ''}
 
+  componentDidMount() {
+    const name = this.props.match.params.name
+    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          console.log(result)
+          this.setState({
+            pokemon: result,
+            name: result.name,
+            types: result.types,
+            stats: result.stats,
+            moves: result.moves
+          });
+        }
+      ).catch(error => {
+        this.setState({
+          pokemon: {},
+          name: 'Not Found',
+          error: error,
+          types: null,
+          stats: null,
+          moves: null
+        });
+      })
+
+  }
+
   capitalize = (string) => {
     return string
     .split('-')

@@ -11,6 +11,7 @@ class Type extends React.Component {
             pokemon: null || {}, 
             query: '',
             moves: null,
+            sprites: []
           }
 
   capitalize = (string) => {
@@ -25,6 +26,15 @@ class Type extends React.Component {
   }
 
 
+  getPokemon = (string) => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${string}`)
+    .then(res => res.json())
+    .then(res => {
+      return res.sprites.front_default})
+  }
+
+  // fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(res => res.json()).then(result => this.setState({ sprites: result.sprites.front_default }))
+  // const name = mon.pokemon.name
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -38,24 +48,47 @@ class Type extends React.Component {
             damage_relations: result.damage_relations,
             game_indices: result.game_indices,
             moves: result.moves,
-            pokemon: result.pokemon
+            pokemon: result.pokemon,
+            sprites: []
           });
           console.log(result)
         }
-      ).catch(error => {
+      )
+      .then( res => {
+        let pokemon = this.state.pokemon
+        pokemon.map( mon => {
+          const name = mon.pokemon.name
+          let sprites = this.state.sprites
+          fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(res => res.json()).then(result => sprites.push(result))
+          .then( result2 => {
+            sprites = sprites.sort((a,b) => {
+              let ida = a.id;
+              let idb = b.id;
+              if(ida < idb) return -1;
+              if(ida > idb) return 1;
+              return 0;
+            });
+            this.setState({sprites})
+          }
+
+          )
+        })
+      }).catch(error => {
         this.setState({
           name: "Not Found",
           pokemon: null,
           moves: null,
+          sprites: []
 
         });
       })
   }
   render() {
-    const {name, damage_relations, game_indices, moves, pokemon} = this.state;
+    const {name, damage_relations, game_indices, moves, pokemon, sprites} = this.state;
     return (
       <div>
         <Navbar />
+        {console.log(this.getPokemon('pikachu'))}
         <h1>Search Type!</h1>
         <form onSubmit={this.handleSubmit}>
           <input
@@ -69,14 +102,14 @@ class Type extends React.Component {
           
           <h2>Pokemon:</h2>
           <ul>
-          {pokemon.map(mon => (
-            <li>{this.capitalize(mon.pokemon.name)}</li>
-          ))}
+          {this.state.sprites.map((sprite, i) => {
+            return <li key={sprite.name}><Link to={`/name/${sprite.name}`}>{sprite.name}<img src={sprite.sprites.front_default} alt="test" /></Link></li>
+          })}
           </ul>
           <h2>Moves:</h2>
           <ul>
           {moves.map(move => (
-            <li>{this.capitalize(move.name)}</li>
+            <li key={move.name}><Link to={`/move/${move.name}`}>{this.capitalize(move.name)}</Link></li>
             ))}
           </ul>
           
