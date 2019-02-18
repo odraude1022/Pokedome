@@ -103,7 +103,7 @@ class Type extends React.Component {
           <h2>Pokemon:</h2>
           <ul>
           {this.state.sprites.map((sprite, i) => {
-            return <li key={sprite.name}>{sprite.name}<img src={sprite.sprites.front_default} alt="test" /></li>
+            return <li key={sprite.name}><Link to={`/name/${sprite.name}`}>{sprite.name}<img src={sprite.sprites.front_default} alt="test" /></Link></li>
           })}
           </ul>
           <h2>Moves:</h2>
