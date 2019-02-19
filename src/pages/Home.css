@@ -178,3 +178,24 @@ h1.blinker {
   justify-content: center;
   grid-auto-flow: column;
 }
+
+input[type="search"] {
+  margin-top: 1.2em;
+  margin-left: 1.8em;
+  padding: .7em 1.3em;
+  border: 1px solid lightgrey;
+  border-radius: 2em;
+  text-align: center;
+  font-family: 'Audiowide';
+  font-size: 1em;
+  width: auto;
+
+}
+input[type="search"]:focus {
+  border-color: grey;
+  outline: none;
+}
+input[type="search"]:hover {
+  border-color: grey;
+  outline: none;
+}
