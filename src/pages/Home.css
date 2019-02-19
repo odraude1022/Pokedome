@@ -127,6 +127,7 @@ h1 {
 
 .results {
   display: grid;
+  justify-items: center;
   width: 1fr;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 30px;
@@ -139,6 +140,8 @@ h1 {
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 10px 10px 50px black, inset 0px 0px 2px 2px black;
+  width: 207.8px;
+  height: 236px;
 }
 
 .move-results {

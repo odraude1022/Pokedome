@@ -263,58 +263,58 @@ class Type extends React.Component {
 
         <div id="type_icons">
           <Link to={`/type/normal`}>
-            <img id="Normal" src={ Normal } onClick={() => this.handleParameter('normal')}alt="normal" />
+            <img className='type_icon' src={ Normal } onClick={() => this.handleParameter('normal')}alt="normal" />
           </Link>
           <Link to={`/type/bug`}>
-            <img id="Bug" src={ Bug } onClick={() => this.handleParameter('bug')}alt="bug" />
+            <img className='type_icon' src={ Bug } onClick={() => this.handleParameter('bug')}alt="bug" />
           </Link>
           <Link to={`/type/dark`}>
-            <img id="Dark" src={ Dark } onClick={() => this.handleParameter('dark')}alt="dark" />
+            <img className='type_icon' src={ Dark } onClick={() => this.handleParameter('dark')}alt="dark" />
           </Link>
           <Link to={`/type/dragon`}>
-            <img id="Dragon" src={ Dragon } onClick={() => this.handleParameter('dragon')}alt="dragon" />
+            <img className='type_icon' src={ Dragon } onClick={() => this.handleParameter('dragon')}alt="dragon" />
           </Link>
           <Link to={`/type/electric`}>
-            <img id="Electric" src={ Electric } onClick={() => this.handleParameter('electric')}alt="electric"  />
+            <img className='type_icon' src={ Electric } onClick={() => this.handleParameter('electric')}alt="electric"  />
           </Link>
           <Link to={`/type/fairy`}>
-            <img id="Fairy" src={ Fairy } onClick={() => this.handleParameter('fairy')}alt="fairy" />
+            <img className='type_icon' src={ Fairy } onClick={() => this.handleParameter('fairy')}alt="fairy" />
           </Link>
           <Link to={`/type/fighting`}>
-            <img id="Fighting" src={ Fighting } onClick={() => this.handleParameter('fighting')}alt="fighting" />
+            <img className='type_icon' src={ Fighting } onClick={() => this.handleParameter('fighting')}alt="fighting" />
           </Link>
           <Link to={`/type/fire`}>
-            <img id="Fire" src={ Fire } onClick={() => this.handleParameter('fire')}alt="fighting"  />
+            <img className='type_icon' src={ Fire } onClick={() => this.handleParameter('fire')}alt="fighting"  />
           </Link>
           <Link to={`/type/flying`}>
-            <img id="Flying" src={ Flying } onClick={() => this.handleParameter('flying')}alt="flying" />
+            <img className='type_icon' src={ Flying } onClick={() => this.handleParameter('flying')}alt="flying" />
           </Link>
           <Link to={`/type/ghost`}>
-            <img id="Ghost" src={ Ghost } onClick={() => this.handleParameter('ghost')}alt="ghost" />
+            <img className='type_icon' src={ Ghost } onClick={() => this.handleParameter('ghost')}alt="ghost" />
           </Link>
           <Link to={`/type/grass`}>
-            <img id="Grass" src={ Grass } onClick={() => this.handleParameter('grass')}alt="grass"  />
+            <img className='type_icon' src={ Grass } onClick={() => this.handleParameter('grass')}alt="grass"  />
           </Link>
           <Link to={`/type/ground`}>
-            <img id="Ground" src={ Ground } onClick={() => this.handleParameter('ground')}alt="ground" />
+            <img className='type_icon' src={ Ground } onClick={() => this.handleParameter('ground')}alt="ground" />
           </Link>
           <Link to={`/type/ice`}>
-            <img id="Ice" src={ Ice } onClick={() => this.handleParameter('ice')}alt="ice" />
+            <img className='type_icon' src={ Ice } onClick={() => this.handleParameter('ice')}alt="ice" />
           </Link>
           <Link to={`/type/poison`}>
-            <img id="Poison" src={ Poison } onClick={() => this.handleParameter('poison')}alt="poison" />
+            <img className='type_icon' src={ Poison } onClick={() => this.handleParameter('poison')}alt="poison" />
           </Link>
           <Link to={`/type/psychic`}>
-            <img id="Psychic" src={ Psychic } onClick={() => this.handleParameter('psychic')}alt="psychic" />
+            <img className='type_icon' src={ Psychic } onClick={() => this.handleParameter('psychic')}alt="psychic" />
           </Link>
           <Link to={`/type/steel`}>
-            <img id="Steel" src={ Steel } onClick={() => this.handleParameter('steel')}alt="steel" />
+            <img className='type_icon' src={ Steel } onClick={() => this.handleParameter('steel')}alt="steel" />
           </Link>
           <Link to={`/type/rock`}>
-            < img id="Rock" src={ Rock } onClick={() => this.handleParameter('rock')}alt="rock" />
+            < img className='type_icon' src={ Rock } onClick={() => this.handleParameter('rock')}alt="rock" />
           </Link>
           <Link to={`/type/water`}>
-            <img id="Water" src={ Water } onClick={() => this.handleParameter('water')}alt="water" />
+            <img className='type_icon' src={ Water } onClick={() => this.handleParameter('water')}alt="water" />
           </Link>
         </div>
 
