@@ -12,3 +12,17 @@
   border-radius: 50px;
   width: 150px;
 }
+
+@media only screen and (max-width: 600px) {
+  #type_icons{
+    min-height: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    grid-template-columns: repeat(3, minmax(110px, 1fr));
+    grid-gap: 5px;
+  }
+  .type_icon {
+  border-radius: 20px;
+  width: 100px;
+}
+}
