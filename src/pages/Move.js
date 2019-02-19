@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import Poke from './Pokeball.svg'
+import Poke from './Images/Pokeball.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class Move extends React.Component {

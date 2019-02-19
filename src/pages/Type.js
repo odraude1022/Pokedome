@@ -1,26 +1,26 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import Poke from './Pokeball.svg'
+import Poke from './Images/Pokeball.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import './Type.css'
-import Normal from './normal_icon.jpg'
-import Bug from './bug_icon.jpg'
-import Dark from './dark_icon.jpg'
-import Dragon from './dragon_icon.jpg'
-import Electric from './electric_icon.jpg'
-import Fairy from './fairy_icon.jpg'
-import Fighting from './fighting_icon.jpg'
-import Fire from './fire_icon.jpg'
-import Flying from './flying_icon.jpg'
-import Ghost from './ghost_icon.jpg'
-import Grass from './grass_icon.jpg'
-import Ground from './ground_icon.jpg'
-import Ice from './ice_icon.jpg'
-import Poison from './poison_icon.jpg'
-import Psychic from './psychic_icon.jpg'
-import Steel from './steel_icon.jpg'
-import Rock from './rock_icon.jpg'
-import Water from './water_icon.jpg'
+import Normal from './Images/normal_icon.jpg'
+import Bug from './Images/bug_icon.jpg'
+import Dark from './Images/dark_icon.jpg'
+import Dragon from './Images/dragon_icon.jpg'
+import Electric from './Images/electric_icon.jpg'
+import Fairy from './Images/fairy_icon.jpg'
+import Fighting from './Images/fighting_icon.jpg'
+import Fire from './Images/fire_icon.jpg'
+import Flying from './Images/flying_icon.jpg'
+import Ghost from './Images/ghost_icon.jpg'
+import Grass from './Images/grass_icon.jpg'
+import Ground from './Images/ground_icon.jpg'
+import Ice from './Images/ice_icon.jpg'
+import Poison from './Images/poison_icon.jpg'
+import Psychic from './Images/psychic_icon.jpg'
+import Steel from './Images/steel_icon.jpg'
+import Rock from './Images/rock_icon.jpg'
+import Water from './Images/water_icon.jpg'
 
 class Type extends React.Component {
   state = { error: null,
@@ -259,13 +259,7 @@ class Type extends React.Component {
           </div>
         </div>
         <h1>Search Type!</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="search"
-            value={this.state.query}
-            onChange={this.handleInput}
-          />
-        </form>
+
 
         <div id="type_icons">
           <Link to={`/type/normal`}>

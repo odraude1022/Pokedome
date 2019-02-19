@@ -1,11 +1,63 @@
-#type_icons {
+#type_icons{
   min-height: 200px;
-  display: flex;
   display: grid;
   grid-template-columns: repeat(6, minmax(200px, 1fr));
-  grid-gap: 20px;
-  flex-direction: rows;
+  grid-gap: 60px;
   justify-content: center;
-  align-items: center;
-  align-content: space-around;
+  padding: 10px 90px;
+}
+
+#Normal{
+  border-radius: 50px;
+}
+#Bug{
+  border-radius: 50px;
+}
+#Dark{
+  border-radius: 50px;
+}
+#Dragon{
+  border-radius: 50px;
+}
+#Electric{
+  border-radius: 50px;
+}
+#Fairy{
+  border-radius: 50px;
+}
+#Fighting{
+  border-radius: 50px;
+}
+#Fire{
+  border-radius: 50px;
+}
+#Flying{
+  border-radius: 50px;
+}
+#Ghost{
+  border-radius: 50px;
+}
+#Grass{
+  border-radius: 50px;
+}
+#Ground{
+  border-radius: 50px;
+}
+#Ice{
+  border-radius: 50px;
+}
+#Poison{
+  border-radius: 50px;
+}
+#Psychic{
+  border-radius: 50px;
+}
+#Steel{
+  border-radius: 50px;
+}
+#Rock{
+  border-radius: 50px;
+}
+#Water{
+  border-radius: 50px;
 }
