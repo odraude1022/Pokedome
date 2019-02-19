@@ -1,9 +1,9 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import './Home.css'
-import Pikachu from './pikachu_waving.gif'
-import Poke from './Pokeball.svg'
-import Unknown from './unknown.gif'
+import Pikachu from './Images/pikachu_waving.gif'
+import Poke from './Images/Pokeball.svg'
+import Unknown from './Images/unknown.gif'
 
 
 
