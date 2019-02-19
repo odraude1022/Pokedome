@@ -213,6 +213,7 @@ input[type="search"]:hover {
 @media only screen and (max-width: 600px) {
   body {
     background-image: url('https://wallpapercave.com/wp/wp2113320.jpg');
+    background-repeat: no-repeat;
     background-size: none;
     background-attachment: fixed;
   }
