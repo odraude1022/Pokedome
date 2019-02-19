@@ -22,10 +22,9 @@ const Home = () => {
       <div id='pokeball2'>
         <img id="Ball2" src={ Poke } alt="location" height="90" width="90" />
       </div>
-
-  </div>
+    </div>
     <div id='title'>
-      <h1>Welcome to Poke Dome!</h1>
+      <h1 className='blinker'>Welcome to Poke Dome!</h1>
     </div>
 <div class='info'>
   <div id="left">
@@ -48,10 +47,9 @@ const Home = () => {
   </div>
 </div>
 
-
-      <div id="img-wrapper1">
-        <img id="Pikachu" src={ Pikachu } alt="pikachu" height="250" width="330"/>
-      </div>
+<div id="img-wrapper">
+  <img id="Pikachu" src={ Pikachu } alt="pikachu" height="250" width="330"/>
+</div>
 
     </React.Fragment>
   )

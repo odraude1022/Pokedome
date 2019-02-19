@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import App from '../App'
+import Poke from './Pokeball.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class Type extends React.Component {
@@ -162,7 +162,17 @@ class Type extends React.Component {
     }
     return (
       <div>
-        <Navbar />
+        <div id="navbars">
+          <div id='pokeball1'>
+            <img id="Ball" src={Poke} alt="location" height="90" width="90" />
+          </div>
+          <div id='navbar'>
+            <Navbar />
+          </div>
+          <div id='pokeball2'>
+            <img id="Ball2" src={Poke} alt="location" height="90" width="90" />
+          </div>
+        </div>
         <h1>Search Type!</h1>
         <form onSubmit={this.handleSubmit}>
           <input
@@ -172,21 +182,21 @@ class Type extends React.Component {
           />
         </form>
         {this.state.name && <h1>{this.capitalize(this.state.name)} </h1>}
-        {this.state.moves && <div className='results'>
-
-          <h2>Pokemon:</h2>
-          <ul>
+        {this.state.moves && <div>
+          <div className='poke-center'>
+          <h2 className='moveset-text'>Pokemon:</h2>
+          </div>
+          <div className='results'>
           {this.state.sprites.map((sprite, i) => {
-            return <li key={sprite.name}><Link to={`/name/${sprite.name}`}>{sprite.name}<img src={sprite.sprites.front_default} alt="test" /></Link></li>
-          })}
-          </ul>
+            return <div className='result' key={sprite.name}><Link to={`/name/${sprite.name}`}>{sprite.name}
+            <img width='200px'src={sprite.sprites.front_default} alt="test" /></Link></div>
+          })} </div>
           <h2>Moves:</h2>
-          <ul>
-          {moves.map(move => (
-            <li key={move.name}><Link to={`/move/${move.name}`}>{this.capitalize(move.name)}</Link></li>
-            ))}
-          </ul>
-
+          <div className='move-results'>
+            {moves.map(move => (
+              <div key={move.name}><Link to={`/move/${move.name}`}>{this.capitalize(move.name)}</Link></div>
+              ))}
+          </div>
         </div>}
       </div>
     )

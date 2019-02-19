@@ -1,5 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import './Name.css'
+import Poke from './Pokeball.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class Name extends React.Component {
@@ -74,7 +76,17 @@ class Name extends React.Component {
   const { pokemon } = this.state;
       return (
         <div>
-          <Navbar/>
+          <div id="navbars">
+            <div id='pokeball1'>
+              <img id="Ball" src={Poke} alt="location" height="90" width="90" />
+            </div>
+            <div id='navbar'>
+              <Navbar />
+            </div>
+            <div id='pokeball2'>
+              <img id="Ball2" src={Poke} alt="location" height="90" width="90" />
+            </div>
+          </div>
           <h1>Search Pokemon By Name!</h1>
           <form onSubmit={this.handleSubmit}>
             <input
@@ -84,29 +96,37 @@ class Name extends React.Component {
             />
           </form>
           {this.state.name && <h1>{this.capitalize(this.state.name)} </h1>}
-          {Object.keys(pokemon).length > 0  && <div className='results'>
-            <img
-            src={this.state.pokemon.sprites.front_default}
-            alt='sprite of pokemon from the front'/>
-            <img
-            src={this.state.pokemon.sprites.back_default}
-            alt='sprite of pokemon from the back'/>
-            <p>Type: {pokemon.types.map( type => (
-                <a key={type.type.name}><Link to={`/type/${type.type.name}`}> {this.capitalize(type.type.name)} </Link> </a>
-            ))}</p>
-            {/*Link to Type page*/}
-            <h2>Base Stats</h2>
-            <ul>
-              {pokemon.stats.map(stat => (
-                <li key={stat.stat.name}>{`${this.capitalize(stat.stat.name)}: ${stat.base_stat}`}</li>
-              ))}
-            </ul>
-            <h2>Moveset</h2>
-            <ul>
+          {Object.keys(pokemon).length > 0  && <div>
+            <div className='name-results'>
+              <div className='name-result'>
+                <div className='spritez'>
+                <img
+                width='150px'
+                src={this.state.pokemon.sprites.front_default}
+                alt='sprite of pokemon from the front'/>
+                <img
+                width='150px'
+                src={this.state.pokemon.sprites.back_default}
+                alt='sprite of pokemon from the back'/>
+                </div>
+              <p>Type: {pokemon.types.map( type => (
+                  <a key={type.type.name}><Link to={`/type/${type.type.name}`}> {this.capitalize(type.type.name)} </Link> </a>
+              ))}</p>
+              {/*Link to Type page*/}
+              <h2>Base Stats</h2>
+              <ul>
+                {pokemon.stats.map(stat => (
+                  <li key={stat.stat.name}>{`${this.capitalize(stat.stat.name)}: ${stat.base_stat}`}</li>
+                ))}
+              </ul>
+              </div>
+              <h2 className='moveset-text'>Moveset</h2>
+            </div>
+            <div className='move-results'>
               {pokemon.moves.map(move => (
-                <li key={move.move.name}><Link to={`/move/${move.move.name}`}>{this.capitalize(move.move.name)}</Link></li>
+                <div key={move.move.name}><Link to={`/move/${move.move.name}`}>{this.capitalize(move.move.name)}</Link></div>
               ))}
-            </ul>
+            </div>
           </div>}
         </div>
       )

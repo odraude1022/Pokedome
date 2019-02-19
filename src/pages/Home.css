@@ -17,6 +17,7 @@ body{
   padding: 20px;
 }
 ul {
+  padding-inline-start: 0px;
   list-style-type: none;
 }
 
@@ -37,8 +38,11 @@ h1 {
    font-size: 66px;
    word-spacing: 5px;
    text-shadow: 5px 6px white;
-   animation: blinker 1s linear infinite;
 }
+
+/* h1.blinker {
+  animation: blinker 1s linear infinite;
+} */
 
 @keyframes blinker {
   30% {
@@ -49,17 +53,19 @@ h1 {
 .info {
   display: grid;
   justify-items: auto;
-  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 100px;
 }
 
 #left{
   background-image: url(light-honeycomb.png);
-  border: 3px solid black;
+  border: 2px solid black;
   padding: 0 20px;
   display: grid;
   justify-items: center;
   align-content: center;
-  width: 300px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 50px black, inset 0px 0px 2px 2px black;
 }
 
 #center {
@@ -67,19 +73,21 @@ h1 {
     justify-items: center;
     grid-auto-flow: row;
     background-image: url('dark-honeycomb.png');
-    border: 3px solid white;
-    width: 40rem;
+    border: 2px solid black;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: bold;
     color:white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px black, inset 0px 0px 2px 2px black;
+    padding: 0px 20px;
 }
-
-
+#img-wrapper {
+  display: grid;
+  justify-content: center;
+}
 #Pikachu {
-  position: relative;
-  margin-left: 80%;
-  margin-top: 10;
+  size: auto;
 }
 
 #navbars{
@@ -113,4 +121,84 @@ h1 {
   -webkit-animation:spin 4s linear infinite;
   -moz-animation:spin 4s linear infinite;
   animation:spin 4s linear infinite;
+}
+
+.results {
+  display: grid;
+  width: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 30px;
+}
+
+.result {
+  display: grid;
+  place-items: center;
+  background-image: url('dark-honeycomb.png');
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 10px 10px 50px black, inset 0px 0px 2px 2px black;
+}
+
+.move-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 15px;
+  background-image: url('dark-honeycomb.png');
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 50px black, inset 0px 0px 5px 5px black;
+}
+
+.name-results {
+  grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+  display: grid;
+  justify-content: center;
+}
+
+.name-result {
+  width: fit-content;
+  background-image: url('light-honeycomb.png');
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 50px black, inset 0px 0px 5px 5px black;
+}
+
+.moveset-text {
+  background-image: url('light-honeycomb.png');
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 50px black, inset 0px 0px 5px 5px black;
+}
+
+.poke-center {
+  display: grid;
+  justify-items: center;
+}
+
+.spritez {
+  display: grid;
+  justify-content: center;
+  grid-auto-flow: column;
+}
+
+input[type="search"] {
+  padding: .7em 1.3em;
+  border: 1px solid lightgrey;
+  border-radius: 2em;
+  text-align: center;
+  font-family: 'Audiowide';
+  font-size: 1em;
+  width: auto;
+
+}
+input[type="search"]:focus {
+  border-color: grey;
+  outline: none;
+}
+input[type="search"]:hover {
+  border-color: grey;
+  outline: none;
 }
