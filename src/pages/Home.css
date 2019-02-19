@@ -40,9 +40,9 @@ h1 {
    text-shadow: 5px 6px white;
 }
 
-h1.blinker {
+/* h1.blinker {
   animation: blinker 1s linear infinite;
-}
+} */
 
 @keyframes blinker {
   30% {
@@ -171,6 +171,11 @@ h1.blinker {
   padding: 10px 20px;
   border-radius: 10px;
   box-shadow: 10px 10px 50px black, inset 0px 0px 5px 5px black;
+}
+
+.poke-center {
+  display: grid;
+  justify-items: center;
 }
 
 .spritez {

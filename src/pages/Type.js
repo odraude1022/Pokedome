@@ -183,8 +183,9 @@ class Type extends React.Component {
         </form>
         {this.state.name && <h1>{this.capitalize(this.state.name)} </h1>}
         {this.state.moves && <div>
-
-          <h2>Pokemon:</h2>
+          <div className='poke-center'>
+          <h2 className='moveset-text'>Pokemon:</h2>
+          </div>
           <div className='results'>
           {this.state.sprites.map((sprite, i) => {
             return <div className='result' key={sprite.name}><Link to={`/name/${sprite.name}`}>{sprite.name}
