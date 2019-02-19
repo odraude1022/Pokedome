@@ -30,7 +30,8 @@ class Move extends React.Component {
         effect: result.effect_entries[0].effect.replace('$effect_chance', result.effect_chance),
         effect_chance: result.effect_chance,
         power: result.power,
-        pp: result.pp
+        pp: result.pp,
+        query: ''
       })
 
     }).catch(error => {
@@ -42,7 +43,8 @@ class Move extends React.Component {
         damage_class: null,
         effect: null,
         power: null,
-        pp: null})
+        pp: null,
+        query: ''})
     })
 
   }
@@ -71,7 +73,8 @@ class Move extends React.Component {
         effect: result.effect_entries[0].effect.replace('$effect_chance', result.effect_chance),
         effect_chance: result.effect_chance,
         power: result.power,
-        pp: result.pp
+        pp: result.pp,
+        query: ''
       })
 
     }).catch(error => {
@@ -83,7 +86,8 @@ class Move extends React.Component {
         damage_class: null,
         effect: null,
         power: null,
-        pp: null})
+        pp: null,
+        query: ''})
     })
   }
 
