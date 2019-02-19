@@ -16,7 +16,9 @@ body{
   text-align: center;
   padding: 20px;
 }
-
+ul {
+  list-style-type: none;
+}
 
 a:link {
   color: red;
@@ -44,23 +46,29 @@ h1 {
   }
 }
 
-
+.info {
+  display: grid;
+  justify-items: auto;
+  grid-auto-flow: column;
+}
 
 #left{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-left: -75%;
+  background-image: url(light-honeycomb.png);
+  border: 3px solid black;
+  padding: 0 20px;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  width: 300px;
 }
 
 #center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    margin-top: -15%;
-     max-width: 100%;
-       position: relative;
+    display: grid;
+    justify-items: center;
+    grid-auto-flow: row;
+    background-image: url('dark-honeycomb.png');
+    border: 3px solid white;
+    width: 40rem;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: bold;
@@ -75,20 +83,26 @@ h1 {
 }
 
 #navbars{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  flex-basis: 100%;
-  max-width: 100%;
-  margin: auto;
-  justify-content: center;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-rows: 0fr;
+  grid-auto-flow: column;
 }
 
+#navbar{
+  display: grid;
+  align-content: center;
+  align-items: center;
+}
+
+#pokeball1 {
+  display: flex;
+  justify-content: flex-end;
+}
+#pokeball2 {
+  display: flex;
+  justify-content: flex-start;
+}
 #Ball{
-  margin-left: 260%;
-  margin-top: -65%;
-   max-width: 100%;
   -webkit-animation: spin 4s linear infinite;
   -moz-animation:spin 4s linear infinite;
   animation:spin 4s linear infinite;
@@ -96,8 +110,6 @@ h1 {
 
 
 #Ball2{
-  margin-left: -520%;
-  margin-top: -66%;
   -webkit-animation:spin 4s linear infinite;
   -moz-animation:spin 4s linear infinite;
   animation:spin 4s linear infinite;
