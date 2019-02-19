@@ -53,7 +53,8 @@ h1.blinker {
 .info {
   display: grid;
   justify-items: auto;
-  grid-auto-flow: column;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 100px;
 }
 
 #left{
@@ -63,7 +64,6 @@ h1.blinker {
   display: grid;
   justify-items: center;
   align-content: center;
-  width: 300px;
   border-radius: 10px;
   box-shadow: 10px 10px 50px black, inset 0px 0px 2px 2px black;
 }
@@ -74,7 +74,6 @@ h1.blinker {
     grid-auto-flow: row;
     background-image: url('dark-honeycomb.png');
     border: 2px solid black;
-    width: 40rem;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
     font-weight: bold;
@@ -83,12 +82,12 @@ h1.blinker {
     box-shadow: 10px 10px 50px black, inset 0px 0px 2px 2px black;
     padding: 0px 20px;
 }
-
-
+#img-wrapper {
+  display: grid;
+  justify-content: center;
+}
 #Pikachu {
-  position: relative;
-  margin-left: 80%;
-  margin-top: 10;
+  size: auto;
 }
 
 #navbars{

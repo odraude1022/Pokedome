@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import './Name.css'
+import Poke from './Pokeball.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class Name extends React.Component {
@@ -75,7 +76,17 @@ class Name extends React.Component {
   const { pokemon } = this.state;
       return (
         <div>
-          <Navbar/>
+          <div id="navbars">
+            <div id='pokeball1'>
+              <img id="Ball" src={Poke} alt="location" height="90" width="90" />
+            </div>
+            <div id='navbar'>
+              <Navbar />
+            </div>
+            <div id='pokeball2'>
+              <img id="Ball2" src={Poke} alt="location" height="90" width="90" />
+            </div>
+          </div>
           <h1>Search Pokemon By Name!</h1>
           <form onSubmit={this.handleSubmit}>
             <input

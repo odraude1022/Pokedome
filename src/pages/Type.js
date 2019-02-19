@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import Poke from './Pokeball.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class Type extends React.Component {
@@ -161,7 +162,17 @@ class Type extends React.Component {
     }
     return (
       <div>
-        <Navbar />
+        <div id="navbars">
+          <div id='pokeball1'>
+            <img id="Ball" src={Poke} alt="location" height="90" width="90" />
+          </div>
+          <div id='navbar'>
+            <Navbar />
+          </div>
+          <div id='pokeball2'>
+            <img id="Ball2" src={Poke} alt="location" height="90" width="90" />
+          </div>
+        </div>
         <h1>Search Type!</h1>
         <form onSubmit={this.handleSubmit}>
           <input
