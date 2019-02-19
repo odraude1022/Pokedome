@@ -101,14 +101,15 @@ class Move extends React.Component {
           />
         </form>
         {this.state.name && <h1>{this.capitalize(this.state.name)} </h1>}
-        {this.state.move && <div className='results'>
+        {this.state.move && <div className='name-results'>
+          <div className='name-result'>
           <p>Type: <Link to={`/type/${this.state.type}`}>{this.capitalize(this.state.type)}</Link></p>
           <p>Power: {this.state.power}</p>
           <p>Accuracy: {this.state.accuracy}</p>
           <p>Max PP: {this.state.pp}</p>
           <p>Category: {this.capitalize(this.state.damage_class)}</p>
           <p>Effect: {this.state.effect}</p>
-
+          </div>
         </div>}
       </div>
     )

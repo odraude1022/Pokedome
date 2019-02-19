@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import './Name.css'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class Name extends React.Component {
@@ -84,13 +85,17 @@ class Name extends React.Component {
             />
           </form>
           {this.state.name && <h1>{this.capitalize(this.state.name)} </h1>}
-          {Object.keys(pokemon).length > 0  && <div className='results'>
+          {Object.keys(pokemon).length > 0  && <div className='name-results'>
+            <div className='name-result'>
+            <div className='spritez'>
             <img
+            width='150px'
             src={this.state.pokemon.sprites.front_default}
             alt='sprite of pokemon from the front'/>
             <img
+            width='150px'
             src={this.state.pokemon.sprites.back_default}
-            alt='sprite of pokemon from the back'/>
+            alt='sprite of pokemon from the back'/></div>
             <p>Type: {pokemon.types.map( type => (
                 <a key={type.type.name}><Link to={`/type/${type.type.name}`}> {this.capitalize(type.type.name)} </Link> </a>
             ))}</p>
@@ -107,6 +112,7 @@ class Name extends React.Component {
                 <li key={move.move.name}><Link to={`/move/${move.move.name}`}>{this.capitalize(move.move.name)}</Link></li>
               ))}
             </ul>
+            </div>
           </div>}
         </div>
       )

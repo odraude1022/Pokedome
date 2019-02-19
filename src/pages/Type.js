@@ -1,6 +1,5 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import App from '../App'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class Type extends React.Component {
@@ -172,21 +171,20 @@ class Type extends React.Component {
           />
         </form>
         {this.state.name && <h1>{this.capitalize(this.state.name)} </h1>}
-        {this.state.moves && <div className='results'>
+        {this.state.moves && <div>
 
           <h2>Pokemon:</h2>
-          <ul>
+          <div className='results'>
           {this.state.sprites.map((sprite, i) => {
-            return <li key={sprite.name}><Link to={`/name/${sprite.name}`}>{sprite.name}<img src={sprite.sprites.front_default} alt="test" /></Link></li>
-          })}
-          </ul>
+            return <div className='result' key={sprite.name}><Link to={`/name/${sprite.name}`}>{sprite.name}
+            <img width='200px'src={sprite.sprites.front_default} alt="test" /></Link></div>
+          })} </div>
           <h2>Moves:</h2>
-          <ul>
-          {moves.map(move => (
-            <li key={move.name}><Link to={`/move/${move.name}`}>{this.capitalize(move.name)}</Link></li>
-            ))}
-          </ul>
-
+          <div className='move-results'>
+            {moves.map(move => (
+              <div key={move.name}><Link to={`/move/${move.name}`}>{this.capitalize(move.name)}</Link></div>
+              ))}
+          </div>
         </div>}
       </div>
     )

@@ -25,7 +25,7 @@ const Home = () => {
 
   </div>
     <div id='title'>
-      <h1>Welcome to Poke Dome!</h1>
+      <h1 className='blinker'>Welcome to Poke Dome!</h1>
     </div>
 <div class='info'>
   <div id="left">
