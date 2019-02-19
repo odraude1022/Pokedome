@@ -59,7 +59,8 @@ class Name extends React.Component {
             name: result.name,
             types: result.types,
             stats: result.stats,
-            moves: result.moves
+            moves: result.moves,
+            query: ''
           });
         }
       ).catch(error => {
@@ -69,7 +70,8 @@ class Name extends React.Component {
           error: error,
           types: null,
           stats: null,
-          moves: null});
+          moves: null,
+          query: ''});
       })
   }
   render() {
@@ -100,14 +102,14 @@ class Name extends React.Component {
             <div className='name-results'>
               <div className='name-result'>
                 <div className='spritez'>
-                <img
+                {this.state.pokemon.sprites.front_default && <img
                 width='150px'
                 src={this.state.pokemon.sprites.front_default}
-                alt='sprite of pokemon from the front'/>
-                <img
+                alt='sprite of pokemon from the front'/>}
+                {this.state.pokemon.sprites.back_default && <img
                 width='150px'
                 src={this.state.pokemon.sprites.back_default}
-                alt='sprite of pokemon from the back'/>
+                alt='sprite of pokemon from the back'/>}
                 </div>
               <p>Type: {pokemon.types.map( type => (
                   <a key={type.type.name}><Link to={`/type/${type.type.name}`}> {this.capitalize(type.type.name)} </Link> </a>
