@@ -142,10 +142,9 @@ h1.blinker {
 
 .move-results {
   display: grid;
-  width: 1fr;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 15px;
-  background-image: url('light-honeycomb.png');
+  background-image: url('dark-honeycomb.png');
   border: 1px solid black;
   padding: 10px 20px;
   border-radius: 10px;
@@ -153,12 +152,21 @@ h1.blinker {
 }
 
 .name-results {
+  grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
   display: grid;
-  grid-auto-flow: row;
   justify-content: center;
 }
 
 .name-result {
+  width: fit-content;
+  background-image: url('light-honeycomb.png');
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 50px black, inset 0px 0px 5px 5px black;
+}
+
+.moveset-text {
   background-image: url('light-honeycomb.png');
   border: 1px solid black;
   padding: 10px 20px;
