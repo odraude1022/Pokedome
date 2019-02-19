@@ -10,64 +10,50 @@ import Unknown from './unknown.gif'
 const Home = () => {
   return(
 
-    <div>
+    <React.Fragment>
 
     <div id="navbars">
-
-    <div class="ball1">
-      <img id="Ball" src={ Poke } alt="location" height="150" width="90" />
-    </div>
-
-      <Navbar/>
-
-      <div class="ball2">
-        <img id="Ball2" src={ Poke } alt="location" height="150" width="90" />
+      <div id='pokeball1'>
+        <img id="Ball" src={ Poke } alt="location" height="90" width="90" />
+      </div>
+      <div id='navbar'>
+        <Navbar/>
+      </div>
+      <div id='pokeball2'>
+        <img id="Ball2" src={ Poke } alt="location" height="90" width="90" />
       </div>
 
   </div>
-
+    <div id='title'>
       <h1>Welcome to Poke Dome!</h1>
-
-
-<div id="left">
-
-      <div id="intro">
-      <div class="paragraph">
-      <p>Are you new to Pokemon?! </p>
-      <p>This is the website for you!</p>
-      </div>
     </div>
-
-    <div id="secondary">
-    <div class="statement">
-    <p>Here at Poke Dome we offer</p>
-    <p>Pokemon information by filtering them </p>
-    <p>by Name, type and moves!</p>
-    </div>
+<div class='info'>
+  <div id="left">
+    <p>Are you new to Pokemon?!
+      This is the website for you!
+      Here at Poke Dome we offer
+      Pokemon information by filtering them
+      by Name, type and moves!
+      </p>
   </div>
 
-  </div>
-
-
-  <div id="center">
-    <div class="pokefacts">
-    <p>Did you know?</p>
-    <img id="unknown" src={ Unknown } alt="unknown"/>
-    <p>The Pokemon franchise is the HIGHEST-Grossing entertainment franchise of all time!!!</p>
-    <p>Since it’s creation in 1996 Pokemon is estimated to be worth $59.1 billion!</p>
-    <p>Pokemon beats the Star Wars franchise that falls short grossing $49.5 billion!</p>
-    <p>Pokemon Go! came out on July 2016 and had users walk around areas to creating the illustion</p>
-    <p>That users were able to catch their own pokemon!</p>
+    <div id="center">
+      <p>Did you know?</p>
+      <img id="unknown" src={ Unknown } alt="unknown"/>
+      <p>The Pokemon franchise is the HIGHEST-Grossing entertainment franchise of all time!!!
+      Since it’s creation in 1996 Pokemon is estimated to be worth $59.1 billion!
+      Pokemon beats the Star Wars franchise that falls short grossing $49.5 billion!
+      Pokemon Go! came out on July 2016 and had users walk around areas to creating the illustion
+      That users were able to catch their own pokemon!</p>
   </div>
 </div>
-
 
 
       <div id="img-wrapper1">
         <img id="Pikachu" src={ Pikachu } alt="pikachu" height="250" width="330"/>
       </div>
 
-    </div>
+    </React.Fragment>
   )
 }
 

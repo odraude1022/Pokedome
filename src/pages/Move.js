@@ -1,6 +1,5 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import App from '../App'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
 class Move extends React.Component {
