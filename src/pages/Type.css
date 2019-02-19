@@ -1,0 +1,11 @@
+#type_icons {
+  min-height: 200px;
+  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(200px, 1fr));
+  grid-gap: 20px;
+  flex-direction: rows;
+  justify-content: center;
+  align-items: center;
+  align-content: space-around;
+}

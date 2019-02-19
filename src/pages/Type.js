@@ -2,6 +2,25 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Poke from './Pokeball.svg'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import './Type.css'
+import Normal from './normal_icon.jpg'
+import Bug from './bug_icon.jpg'
+import Dark from './dark_icon.jpg'
+import Dragon from './dragon_icon.jpg'
+import Electric from './electric_icon.jpg'
+import Fairy from './fairy_icon.jpg'
+import Fighting from './fighting_icon.jpg'
+import Fire from './fire_icon.jpg'
+import Flying from './flying_icon.jpg'
+import Ghost from './ghost_icon.jpg'
+import Grass from './grass_icon.jpg'
+import Ground from './ground_icon.jpg'
+import Ice from './ice_icon.jpg'
+import Poison from './poison_icon.jpg'
+import Psychic from './psychic_icon.jpg'
+import Steel from './steel_icon.jpg'
+import Rock from './rock_icon.jpg'
+import Water from './water_icon.jpg'
 
 class Type extends React.Component {
   state = { error: null,
@@ -181,6 +200,28 @@ class Type extends React.Component {
             onChange={this.handleInput}
           />
         </form>
+
+        <div id="type_icons">
+      <img id="Normal" src={ Normal } alt="normal"  />
+      <img id="Bug" src={ Bug } alt="bug" />
+      <img id="Dark" src={ Dark } alt="dark" />
+      <img id="Dragon" src={ Dragon } alt="dragon" />
+      <img id="Electric" src={ Electric } alt="electric"  />
+      <img id="Fairy" src={ Fairy } alt="fairy" />
+      <img id="Fighting" src={ Fighting } alt="fighting" />
+      <img id="Fire" src={ Fire } alt="fighting"  />
+      <img id="Flying" src={ Flying } alt="flying" />
+      <img id="Ghost" src={ Ghost } alt="ghost" />
+      <img id="Grass" src={ Grass } alt="grass"  />
+      <img id="Ground" src={ Ground } alt="ground" />
+     <img id="Ice" src={ Ice } alt="ice" />
+     <img id="Poison" src={ Poison } alt="poison" />
+      <img id="Psychic" src={ Psychic } alt="psychic" />
+     <img id="Steel" src={ Steel } alt="steel" />
+      <img id="Rock" src={ Rock } alt="rock" />
+      <img id="Water" src={ Water } alt="water" />
+</div>
+
         {this.state.name && <h1>{this.capitalize(this.state.name)} </h1>}
         {this.state.moves && <div>
           <div className='poke-center'>
