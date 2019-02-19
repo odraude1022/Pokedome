@@ -174,6 +174,72 @@ class Type extends React.Component {
         });
       })
   }
+
+  handleParameter = type => {
+    this.setState({isLoaded: false});
+    fetch(`https://pokeapi.co/api/v2/type/${type}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+
+          this.setState({
+            name: result.name,
+            damage_relations: result.damage_relations,
+            game_indices: result.game_indices,
+            moves: result.moves,
+            pokemon: result.pokemon,
+            sprites: [],
+            isLoaded: false
+          });
+        }
+      )
+      .then( res => {
+        let pokemon = this.state.pokemon
+        let length = pokemon.length;
+        let i = 0;
+        console.log(length)
+        pokemon.map( mon => {
+          console.log(this.state.isLoaded)
+          const name = mon.pokemon.name
+          let sprites = this.state.sprites
+          fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(res => res.json()).then(result => {
+             sprites.push(result)
+           })
+          .then( result2 => {
+            sprites = sprites.sort((a,b) => {
+              let ida = a.id;
+              let idb = b.id;
+              if(ida < idb) return -1;
+              if(ida > idb) return 1;
+              return 0;
+            });
+            console.log(this.state.isLoaded)
+            this.setState({sprites})
+            i++;
+            console.log(i)
+            if(i == length)
+            {
+              this.setState({isLoaded: true});
+            }
+          }
+
+          )
+        })
+      }).catch(error => {
+        this.setState({
+          name: "Not Found",
+          pokemon: null,
+          moves: null,
+          sprites: [],
+          isLoaded: true
+
+        });
+      })
+  }
+
+
+
+
   render() {
     const {name, damage_relations, game_indices, moves, pokemon, sprites, isLoaded} = this.state;
     if (!isLoaded) {
@@ -202,25 +268,61 @@ class Type extends React.Component {
         </form>
 
         <div id="type_icons">
-      <img id="Normal" src={ Normal } alt="normal"  />
-      <img id="Bug" src={ Bug } alt="bug" />
-      <img id="Dark" src={ Dark } alt="dark" />
-      <img id="Dragon" src={ Dragon } alt="dragon" />
-      <img id="Electric" src={ Electric } alt="electric"  />
-      <img id="Fairy" src={ Fairy } alt="fairy" />
-      <img id="Fighting" src={ Fighting } alt="fighting" />
-      <img id="Fire" src={ Fire } alt="fighting"  />
-      <img id="Flying" src={ Flying } alt="flying" />
-      <img id="Ghost" src={ Ghost } alt="ghost" />
-      <img id="Grass" src={ Grass } alt="grass"  />
-      <img id="Ground" src={ Ground } alt="ground" />
-     <img id="Ice" src={ Ice } alt="ice" />
-     <img id="Poison" src={ Poison } alt="poison" />
-      <img id="Psychic" src={ Psychic } alt="psychic" />
-     <img id="Steel" src={ Steel } alt="steel" />
-      <img id="Rock" src={ Rock } alt="rock" />
-      <img id="Water" src={ Water } alt="water" />
-</div>
+          <Link to={`/type/normal`}>
+            <img id="Normal" src={ Normal } onClick={() => this.handleParameter('normal')}alt="normal" />
+          </Link>
+          <Link to={`/type/bug`}>
+            <img id="Bug" src={ Bug } onClick={() => this.handleParameter('bug')}alt="bug" />
+          </Link>
+          <Link to={`/type/dark`}>
+            <img id="Dark" src={ Dark } onClick={() => this.handleParameter('dark')}alt="dark" />
+          </Link>
+          <Link to={`/type/dragon`}>
+            <img id="Dragon" src={ Dragon } onClick={() => this.handleParameter('dragon')}alt="dragon" />
+          </Link>
+          <Link to={`/type/electric`}>
+            <img id="Electric" src={ Electric } onClick={() => this.handleParameter('electric')}alt="electric"  />
+          </Link>
+          <Link to={`/type/fairy`}>
+            <img id="Fairy" src={ Fairy } onClick={() => this.handleParameter('fairy')}alt="fairy" />
+          </Link>
+          <Link to={`/type/fighting`}>
+            <img id="Fighting" src={ Fighting } onClick={() => this.handleParameter('fighting')}alt="fighting" />
+          </Link>
+          <Link to={`/type/fire`}>
+            <img id="Fire" src={ Fire } onClick={() => this.handleParameter('fire')}alt="fighting"  />
+          </Link>
+          <Link to={`/type/flying`}>
+            <img id="Flying" src={ Flying } onClick={() => this.handleParameter('flying')}alt="flying" />
+          </Link>
+          <Link to={`/type/ghost`}>
+            <img id="Ghost" src={ Ghost } onClick={() => this.handleParameter('ghost')}alt="ghost" />
+          </Link>
+          <Link to={`/type/grass`}>
+            <img id="Grass" src={ Grass } onClick={() => this.handleParameter('grass')}alt="grass"  />
+          </Link>
+          <Link to={`/type/ground`}>
+            <img id="Ground" src={ Ground } onClick={() => this.handleParameter('ground')}alt="ground" />
+          </Link>
+          <Link to={`/type/ice`}>
+            <img id="Ice" src={ Ice } onClick={() => this.handleParameter('ice')}alt="ice" />
+          </Link>
+          <Link to={`/type/poison`}>
+            <img id="Poison" src={ Poison } onClick={() => this.handleParameter('poison')}alt="poison" />
+          </Link>
+          <Link to={`/type/psychic`}>
+            <img id="Psychic" src={ Psychic } onClick={() => this.handleParameter('psychic')}alt="psychic" />
+          </Link>
+          <Link to={`/type/steel`}>
+            <img id="Steel" src={ Steel } onClick={() => this.handleParameter('steel')}alt="steel" />
+          </Link>
+          <Link to={`/type/rock`}>
+            < img id="Rock" src={ Rock } onClick={() => this.handleParameter('rock')}alt="rock" />
+          </Link>
+          <Link to={`/type/water`}>
+            <img id="Water" src={ Water } onClick={() => this.handleParameter('water')}alt="water" />
+          </Link>
+        </div>
 
         {this.state.name && <h1>{this.capitalize(this.state.name)} </h1>}
         {this.state.moves && <div>

@@ -97,7 +97,7 @@ class Name extends React.Component {
             onChange={this.handleInput}
             />
           </form>
-          {this.state.name && <h1>{this.capitalize(this.state.name)} </h1>}
+          {this.state.name && <h1>#{this.state.pokemon.id}: {this.capitalize(this.state.name)} </h1>}
           {Object.keys(pokemon).length > 0  && <div>
             <div className='name-results'>
               <div className='name-result'>
