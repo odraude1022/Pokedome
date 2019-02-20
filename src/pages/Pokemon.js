@@ -4,7 +4,15 @@ import './Name.css'
 import Poke from './Images/Pokeball.svg'
 import { Link } from 'react-router-dom'
 
-const pokemonNames = ["Charizard", "Pikachu", "Mewtwo"]
+let pokemonNames = []
+let pokemonObjects;
+fetch(`http://pokeapi.co/api/v2/pokemon/?limit=964`)
+  .then(res => res.json())
+  .then(res => {
+   res.results.map( mon => {
+    pokemonNames.push(mon.name);
+  })
+})
 
 class Pokemon extends React.Component {
   state = {error: null, name: null, types: null, stats: null , moves: null, pokemon: this.props.pokemon || {}, query: '', suggestions: []}
@@ -25,7 +33,8 @@ class Pokemon extends React.Component {
             types: result.types,
             stats: result.stats,
             moves: result.moves,
-            query: ''
+            query: '',
+            suggestions: []
           });
         }
       ).catch(error => {
@@ -36,7 +45,8 @@ class Pokemon extends React.Component {
           types: null,
           stats: null,
           moves: null,
-          query: ''});
+          query: '',
+          suggestions: []});
       })
   }
 
@@ -55,7 +65,11 @@ class Pokemon extends React.Component {
                     .replace('.', '')
                     .replace('?', '')
 
-    let suggestions = pokemonNames.filter(name => name.toLowerCase().startsWith(query.toLowerCase()))
+    let suggestions = pokemonNames
+      .filter(name => name
+                      .toLowerCase()
+                      .startsWith(query.toLowerCase()))
+      .slice(0, 10)
     if(!query) suggestions = []
 
     this.setState({query, suggestions })

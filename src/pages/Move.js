@@ -3,6 +3,22 @@ import Navbar from '../components/Navbar'
 import Poke from './Images/Pokeball.svg'
 import { Link } from 'react-router-dom'
 
+let moveNames = [];
+let moveObjects;
+fetch(`https://pokeapi.co/api/v2/move/?limit=746`)
+  .then(res => res.json())
+  .then(res => {
+    res.results.map( move => {
+    moveNames.push(move.name);
+  })
+  })
+  .then( res => {
+    moveNames = moveNames.sort();
+    }
+  )
+
+
+
 class Move extends React.Component {
   state = {
     query: '',
@@ -14,7 +30,8 @@ class Move extends React.Component {
     damage_class: null,
     effect: null,
     power: null,
-    pp: null}
+    pp: null,
+    suggestions: []}
 
   componentDidMount()
   {
@@ -36,7 +53,8 @@ class Move extends React.Component {
         effect_chance: result.effect_chance,
         power: result.power,
         pp: result.pp,
-        query: ''
+        query: '',
+        suggestions: []
       })
 
     }).catch(error => {
@@ -49,7 +67,8 @@ class Move extends React.Component {
         effect: null,
         power: null,
         pp: null,
-        query: ''})
+        query: '',
+        suggestions: []})
     })
 
   }
@@ -61,6 +80,15 @@ class Move extends React.Component {
     .join('-');
   }
   handleInput = event => {
+    const query = event.target.value.toLowerCase()
+    let suggestions = moveNames
+      .filter(name => name
+                      .toLowerCase()
+                      .startsWith(query.toLowerCase()))
+      .slice(0, 10)
+    if(!query) suggestions = []
+
+    this.setState({query, suggestions })
     this.setState({query: event.target.value.toLowerCase()})
   }
 
@@ -92,6 +120,13 @@ class Move extends React.Component {
           onChange={this.handleInput}
           />
         </form>
+        <ul className="suggestions">
+          {
+            this.state.suggestions.map(suggestion => {
+              return(<li key={suggestion}>{suggestion}</li>)
+            })
+          }
+        </ul>
         {name && <h1>{this.capitalize(name)} </h1>}
         {move && <div className='name-results'>
           <div className='name-result'>
