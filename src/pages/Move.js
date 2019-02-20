@@ -123,7 +123,7 @@ class Move extends React.Component {
         <ul className="suggestions">
           {
             this.state.suggestions.map(suggestion => {
-              return(<li key={suggestion}>{suggestion}</li>)
+              return(<li key={suggestion} onClick={() => this.handleFetch(suggestion)}>{suggestion}</li>)
             })
           }
         </ul>
