@@ -4,8 +4,10 @@ import './Name.css'
 import Poke from './Images/Pokeball.svg'
 import { Link } from 'react-router-dom'
 
+const pokemonNames = ["Charizard", "Pikachu", "Mewtwo"]
+
 class Pokemon extends React.Component {
-  state = {error: null, name: null, types: null, stats: null , moves: null, pokemon: this.props.pokemon || {}, query: ''}
+  state = {error: null, name: null, types: null, stats: null , moves: null, pokemon: this.props.pokemon || {}, query: '', suggestions: []}
 
   componentDidMount() {
     const name = this.props.match.params.name
@@ -47,11 +49,16 @@ class Pokemon extends React.Component {
 
 
   handleInput = event => {
-    this.setState({query: event.target.value
-                          .toLowerCase()
-                          .replace('#', '')
-                          .replace('.', '')
-                          .replace('?', '')})
+    const query = event.target.value
+                    .toLowerCase()
+                    .replace('#', '')
+                    .replace('.', '')
+                    .replace('?', '')
+
+    let suggestions = pokemonNames.filter(name => name.toLowerCase().startsWith(query.toLowerCase()))
+    if(!query) suggestions = []
+
+    this.setState({query, suggestions })
   }
 
   handleSubmit = (event) => {
@@ -84,6 +91,13 @@ class Pokemon extends React.Component {
             value={this.state.query}
             onChange={this.handleInput}
             />
+            <ul className="suggestions">
+              {
+                this.state.suggestions.map(suggestion => {
+                  return(<li key={suggestion}>{suggestion}</li>)
+                })
+              }
+            </ul>
           </form>
           {this.state.pokemon.id && this.state.name && <h1>#{this.state.pokemon.id}: {this.capitalize(this.state.name)} </h1>}
           {!this.state.pokemon.id && this.state.name && <h1>{this.capitalize(this.state.name)}</h1>}
@@ -100,9 +114,16 @@ class Pokemon extends React.Component {
                 src={this.state.pokemon.sprites.back_default}
                 alt='sprite of pokemon from the back'/>}
                 </div>
-              <p>Type: {pokemon.types.map( type => (
-                  <a key={type.type.name}><Link to={`/type/${type.type.name}`}> {this.capitalize(type.type.name)} </Link> </a>
-              ))}</p>
+              <p>
+                Type:
+                {
+                  pokemon.types.map( type => (
+                    <Link key={type.type.name} to={`/type/${type.type.name}`}>
+                      {this.capitalize(type.type.name)}
+                    </Link>
+                  )).reduce((prev, curr) => [prev, ' | ', curr])
+                }
+              </p>
               <h2>Base Stats</h2>
               <ul>
                 {pokemon.stats.map(stat => (
