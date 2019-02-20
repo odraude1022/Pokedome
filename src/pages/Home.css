@@ -1,18 +1,30 @@
-@import url('https://fonts.googleapis.com/css?family=Audiowide');
-@import url('https://fonts.googleapis.com/css?family=Audiowide|Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url("https://fonts.googleapis.com/css?family=Audiowide");
+@import url("https://fonts.googleapis.com/css?family=Audiowide|Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-body{
+body {
   background-image: url("http://getwallpapers.com/wallpaper/full/0/8/a/936884-pokemon-white-wallpaper-1920x1080-for-ios.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Audiowide', cursive, 'Open Sans', sans-serif;
+  font-family: "Audiowide", cursive, "Open Sans", sans-serif;
   font-size: 20px;
   text-align: center;
   padding: 20px;
@@ -23,7 +35,7 @@ ul {
 }
 
 a:link {
-  color: red;
+  color: white;
 }
 a:visited {
   color: white;
@@ -36,9 +48,9 @@ a:active {
 }
 
 h1 {
-   font-size: 66px;
-   word-spacing: 5px;
-   text-shadow: 5px 6px white;
+  font-size: 66px;
+  word-spacing: 5px;
+  text-shadow: 5px 6px white;
 }
 
 /* h1.blinker {
@@ -58,8 +70,8 @@ h1 {
   grid-gap: 100px;
 }
 
-#left{
-  background-image: url('./Images/light-honeycomb.png');
+#left {
+  background-image: url("./Images/light-honeycomb.png");
   border: 2px solid black;
   padding: 0 20px;
   display: grid;
@@ -70,18 +82,18 @@ h1 {
 }
 
 #center {
-    display: grid;
-    justify-items: center;
-    grid-auto-flow: row;
-    background-image: url('./Images/dark-honeycomb.png');
-    border: 2px solid black;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    color:white;
-    border-radius: 10px;
-    box-shadow: 10px 10px 50px black, inset 0px 0px 2px 2px black;
-    padding: 0px 20px;
+  display: grid;
+  justify-items: center;
+  grid-auto-flow: row;
+  background-image: url("./Images/dark-honeycomb.png");
+  border: 2px solid black;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 10px 10px 50px black, inset 0px 0px 2px 2px black;
+  padding: 0px 20px;
 }
 #img-wrapper {
   display: grid;
@@ -92,13 +104,13 @@ h1 {
   margin-top: 35%;
 }
 
-#navbars{
+#navbars {
   display: grid;
   grid-template-rows: 0fr;
   grid-auto-flow: column;
 }
 
-#navbar{
+#navbar {
   display: grid;
   align-content: center;
   align-items: center;
@@ -112,17 +124,16 @@ h1 {
   display: flex;
   justify-content: flex-start;
 }
-#Ball{
+#Ball {
   -webkit-animation: spin 4s linear infinite;
-  -moz-animation:spin 4s linear infinite;
-  animation:spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
 }
 
-
-#Ball2{
-  -webkit-animation:spin 4s linear infinite;
-  -moz-animation:spin 4s linear infinite;
-  animation:spin 4s linear infinite;
+#Ball2 {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
 }
 
 .results {
@@ -136,21 +147,21 @@ h1 {
 .result {
   display: grid;
   place-items: center;
-  background-image: url('./Images/dark-honeycomb.png');
+  background-image: url("./Images/dark-honeycomb.png");
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 10px 10px 50px black, inset 0px 0px 2px 2px black;
   width: 207.8px;
   height: 236px;
 }
-.spriter{
+.spriter {
   width: 200px;
 }
 .move-results {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 15px;
-  background-image: url('./Images/dark-honeycomb.png');
+  background-image: url("./Images/dark-honeycomb.png");
   border: 1px solid black;
   padding: 10px 20px;
   border-radius: 10px;
@@ -165,7 +176,7 @@ h1 {
 
 .name-result {
   width: fit-content;
-  background-image: url('./Images/light-honeycomb.png');
+  background-image: url("./Images/light-honeycomb.png");
   border: 1px solid black;
   padding: 10px 20px;
   border-radius: 10px;
@@ -173,7 +184,7 @@ h1 {
 }
 
 .moveset-text {
-  background-image: url('./Images/light-honeycomb.png');
+  background-image: url("./Images/light-honeycomb.png");
   border: 1px solid black;
   padding: 10px 20px;
   border-radius: 10px;
@@ -192,14 +203,13 @@ h1 {
 }
 
 input[type="search"] {
-  padding: .7em 1.3em;
+  padding: 0.7em 1.3em;
   border: 1px solid lightgrey;
   border-radius: 2em;
   text-align: center;
-  font-family: 'Audiowide';
+  font-family: "Audiowide";
   font-size: 1em;
   width: auto;
-
 }
 input[type="search"]:focus {
   border-color: grey;
@@ -212,7 +222,7 @@ input[type="search"]:hover {
 
 @media only screen and (max-width: 600px) {
   body {
-    background-image: url('https://wallpapercave.com/wp/wp2113320.jpg');
+    background-image: url("https://wallpapercave.com/wp/wp2113320.jpg");
     background-repeat: no-repeat;
     background-size: none;
     background-attachment: fixed;
@@ -229,21 +239,21 @@ input[type="search"]:hover {
     width: 3em;
   }
   .results {
-  grid-template-columns: repeat(3, minmax(100px, 1fr));
-  grid-gap: 10px;
-}
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-gap: 10px;
+  }
 
-.result {
-  display: grid;
-  place-items: center;
-  background-image: url('./Images/dark-honeycomb.png');
-  border: 1px solid black;
-  width: 100px;
-  height: 125px;
-  font-size: .7em;
-  box-shadow: 5px 5px 15px black, inset 0px 0px 2px 2px black;
-}
-.spriter {
-  width: 90px;
-}
+  .result {
+    display: grid;
+    place-items: center;
+    background-image: url("./Images/dark-honeycomb.png");
+    border: 1px solid black;
+    width: 100px;
+    height: 125px;
+    font-size: 0.7em;
+    box-shadow: 5px 5px 15px black, inset 0px 0px 2px 2px black;
+  }
+  .spriter {
+    width: 90px;
+  }
 }
