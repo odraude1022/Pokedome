@@ -4,9 +4,9 @@ import './Navbar.css'
 
 const Navbar = () => {
   return(
-    <div class="links">
+    <div className="links">
       <Link to="/"> Home </Link>  |  <Link to="/type/search"> Search By Type </Link>  |
-      <Link to="/name/search"> Search By Name </Link>  |
+      <Link to="/pokemon/search"> Search By Name </Link>  |
       <Link to="/move/search"> Search Moves </Link>
     </div>
   )
