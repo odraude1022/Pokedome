@@ -100,9 +100,16 @@ class Pokemon extends React.Component {
                 src={this.state.pokemon.sprites.back_default}
                 alt='sprite of pokemon from the back'/>}
                 </div>
-              <p>Type: {pokemon.types.map( type => (
-                  <a key={type.type.name}><Link to={`/type/${type.type.name}`}> {this.capitalize(type.type.name)} </Link> </a>
-              ))}</p>
+              <p>
+                Type:
+                {
+                  pokemon.types.map( type => (
+                    <Link key={type.type.name} to={`/type/${type.type.name}`}>
+                      {this.capitalize(type.type.name)}
+                    </Link>
+                  )).reduce((prev, curr) => [prev, ' | ', curr])
+                }
+              </p>
               <h2>Base Stats</h2>
               <ul>
                 {pokemon.stats.map(stat => (
