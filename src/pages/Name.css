@@ -1,3 +1,19 @@
 .suggestions{
+  margin: 0;
   background-color: white;
+  border-radius: 1em;
+  opacity: .5;
+}
+
+.list-items{
+  opacity: .5;
+}
+.list-items:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.searchbox {
+  display: flex;
+  justify-content: center;
 }
