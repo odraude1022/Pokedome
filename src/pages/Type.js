@@ -119,7 +119,7 @@ class Type extends React.Component {
   }
 
   render() {
-    const {name, damage_relations, game_indices, moves, pokemon, sprites, isLoaded} = this.state;
+    const {name, moves, sprites, isLoaded} = this.state;
     if (!isLoaded) {
       return <div>Loading...</div>;
     }
@@ -202,8 +202,8 @@ class Type extends React.Component {
           <h2 className='moveset-text'>Pokemon:</h2>
           </div>
           <div className='results'>
-          {this.state.sprites.map((sprite, i) => {
-            return <div className='result' key={sprite.name}><Link to={`/name/${sprite.name}`}>{sprite.name}
+          {sprites.map((sprite, i) => {
+            return <div className='result' key={sprite.name}><Link to={`/pokemon/${sprite.name}`}>{sprite.name}
             {sprite.sprites.front_default && <img className='spriter' src={sprite.sprites.front_default} alt="test" />}</Link></div>
           })} </div>
           <h2>Moves:</h2>
