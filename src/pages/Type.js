@@ -203,7 +203,7 @@ class Type extends React.Component {
           </div>
           <div className='results'>
           {sprites.map((sprite, i) => {
-            return <div className='result' key={sprite.name}><Link to={`/pokemon/${sprite.name}`}>{sprite.name}
+            return <div className='result' key={sprite.name}><Link to={`/pokemon/${sprite.name}`}>{this.capitalize(sprite.name)}
             {sprite.sprites.front_default && <img className='spriter' src={sprite.sprites.front_default} alt="test" />}</Link></div>
           })} </div>
           <h2>Moves:</h2>
