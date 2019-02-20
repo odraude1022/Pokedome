@@ -9,47 +9,11 @@ class Name extends React.Component {
 
   componentDidMount() {
     const name = this.props.match.params.name
+    this.handleFetch(name);
+  }
+
+  handleFetch = (name) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log(result)
-          this.setState({
-            pokemon: result,
-            name: result.name,
-            types: result.types,
-            stats: result.stats,
-            moves: result.moves
-          });
-        }
-      ).catch(error => {
-        this.setState({
-          pokemon: {},
-          name: '',
-          error: error,
-          types: null,
-          stats: null,
-          moves: null
-        });
-      })
-
-  }
-
-  capitalize = (string) => {
-    return string
-    .split('-')
-    .map(string => {return string[0].toUpperCase() + string.substring(1, string.length)})
-    .join('-');
-  }
-
-
-  handleInput = event => {
-    this.setState({query: event.target.value.toLowerCase()})
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    fetch(`https://pokeapi.co/api/v2/pokemon/${this.state.query}`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -66,13 +30,38 @@ class Name extends React.Component {
       ).catch(error => {
         this.setState({
           pokemon: {},
-          name: 'Not Found',
+          name: this.state.query ? 'Not Found' : '',
           error: error,
           types: null,
           stats: null,
           moves: null,
           query: ''});
       })
+  }
+
+  capitalize = (string) => {
+    return string
+    .split('-')
+    .map(string => {return string[0].toUpperCase() + string.substring(1, string.length)})
+    .join('-');
+  }
+
+
+  handleInput = event => {
+    this.setState({query: event.target.value
+                          .toLowerCase()
+                          .replace('#', '')
+                          .replace('.', '')
+                          .replace('?', '')})
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    if(!this.state.query)
+    {
+      return
+    }
+    this.handleFetch(this.state.query);
   }
   render() {
   const { pokemon } = this.state;
