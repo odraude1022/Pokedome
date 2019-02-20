@@ -99,20 +99,22 @@ class Pokemon extends React.Component {
             </div>
           </div>
           <h1>Search Pokemon By Name!</h1>
-          <form onSubmit={this.handleSubmit}>
-            <input
-            type="search"
-            value={this.state.query}
-            onChange={this.handleInput}
-            />
-            <ul className="suggestions">
-              {
-                this.state.suggestions.map(suggestion => {
-                  return(<li key={suggestion} onClick={() => this.handleFetch(suggestion)}>{suggestion}</li>)
-                })
-              }
-            </ul>
-          </form>
+          <div className='searchbox'>
+            <form onSubmit={this.handleSubmit}>
+              <input
+              type="search"
+              value={this.state.query}
+              onChange={this.handleInput}
+              />
+              <ul className="suggestions">
+                {
+                  this.state.suggestions.map(suggestion => {
+                    return(<li className='list-items' key={suggestion} onClick={() => this.handleFetch(suggestion)}>{suggestion}</li>)
+                  })
+                }
+              </ul>
+            </form>
+          </div>
           {this.state.pokemon.id && this.state.name && <h1>#{this.state.pokemon.id}: {this.capitalize(this.state.name)} </h1>}
           {!this.state.pokemon.id && this.state.name && <h1>{this.capitalize(this.state.name)}</h1>}
           {Object.keys(pokemon).length > 0  && <div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import './move.css'
 import Navbar from '../components/Navbar'
 import Poke from './Images/Pokeball.svg'
 import { Link } from 'react-router-dom'
@@ -113,20 +114,23 @@ class Move extends React.Component {
           </div>
         </div>
         <h1>Search Moves!</h1>
+        <div className='searchbox'>
         <form onSubmit={this.handleSubmit}>
           <input
           type="search"
           value={this.state.query}
           onChange={this.handleInput}
           />
-        </form>
+        
         <ul className="suggestions">
           {
             this.state.suggestions.map(suggestion => {
-              return(<li key={suggestion} onClick={() => this.handleFetch(suggestion)}>{suggestion}</li>)
+              return(<li className='list-items' key={suggestion} onClick={() => this.handleFetch(suggestion)}>{suggestion}</li>)
             })
           }
-        </ul>
+          </ul>
+        </form>
+        </div>
         {name && <h1>{this.capitalize(name)} </h1>}
         {move && <div className='name-results'>
           <div className='name-result'>
