@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 let pokemonNames = []
 let pokemonObjects;
-fetch(`http://pokeapi.co/api/v2/pokemon/?limit=964`)
+fetch(`https://pokeapi.co/api/v2/pokemon/?limit=964`)
   .then(res => res.json())
   .then(res => {
    res.results.map( mon => {
