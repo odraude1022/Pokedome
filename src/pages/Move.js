@@ -3,9 +3,9 @@ import "./move.css";
 import Navbar from "../components/Navbar";
 import Poke from "./Images/Pokeball.svg";
 import { Link } from "react-router-dom";
+import { ScaleLoader } from 'react-spinners';
 
 let moveNames = [];
-let moveObjects;
 fetch(`https://pokeapi.co/api/v2/move/?limit=746`)
   .then(res => res.json())
   .then(res => {
@@ -29,12 +29,14 @@ class Move extends React.Component {
     effect: null,
     power: null,
     pp: null,
-    suggestions: []
+    suggestions: [],
+    loading: true,
   };
 
   componentDidMount() {
     const move = this.props.match.params.move;
     this.handleFetch(move);
+    this.setState({loading: false})
   }
 
   handleFetch = move => {
@@ -105,10 +107,21 @@ class Move extends React.Component {
       damage_class,
       effect,
       power,
-      pp
+      pp,
+      loading
     } = this.state;
     return (
       <div>
+        <div className="loader">
+          <div>
+            <ScaleLoader
+              className="pacman-load"
+              color={'#F8E71C'}
+              size={"40"}
+              loading={this.state.loading}
+            />
+          </div>
+        </div> 
         <div id="navbars">
           <div id="pokeball1">
             <img id="Ball" src={Poke} alt="location" height="90" width="90" />

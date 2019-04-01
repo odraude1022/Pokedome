@@ -21,6 +21,7 @@ import Psychic from "./Images/psychic_icon.jpg";
 import Steel from "./Images/steel_icon.jpg";
 import Rock from "./Images/rock_icon.jpg";
 import Water from "./Images/water_icon.jpg";
+import { ScaleLoader } from 'react-spinners';
 
 class Type extends React.Component {
   state = {
@@ -32,7 +33,8 @@ class Type extends React.Component {
     query: "",
     moves: null,
     isLoaded: false,
-    sprites: []
+    sprites: [],
+    loading: true
   };
 
   componentDidMount() {
@@ -89,7 +91,8 @@ class Type extends React.Component {
           pokemon: null,
           moves: null,
           sprites: [],
-          isLoaded: true
+          isLoaded: true,
+          loading: false
         });
       });
   };
@@ -115,7 +118,16 @@ class Type extends React.Component {
   render() {
     const { name, moves, sprites, isLoaded } = this.state;
     if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div className="loader">
+              <div>
+                <ScaleLoader
+                  className="pacman-load"
+                  color={'#F8E71C'}
+                  loading={this.state.loading}
+                  height={"50"}
+                />
+              </div>
+            </div>;
     }
     return (
       <div>
