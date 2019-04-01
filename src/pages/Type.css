@@ -13,6 +13,25 @@
   width: 150px;
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1fr;
+}
+@media only screen and (max-width: 800px) {
+  #type_icons {
+    min-height: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    grid-template-columns: repeat(6, minmax(110px, 1fr));
+    grid-gap: 5px;
+  }
+  .type_icon {
+    border-radius: 20px;
+    width: 100px;
+  }
+}
 @media only screen and (max-width: 600px) {
   #type_icons {
     min-height: 0;

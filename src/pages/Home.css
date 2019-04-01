@@ -220,6 +220,48 @@ input[type="search"]:hover {
   outline: none;
 }
 
+@media only screen and (max-width: 800px) {
+  body {
+    background-image: none;
+    background-color: #c42725
+  }
+  .info {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: none;
+  }
+  h1 {
+    font-size: 1.5em;
+    word-spacing: 1px;
+    text-shadow: 1px 1px white;
+  }
+  #Ball {
+    width: 3em;
+  }
+  #Ball2 {
+    width: 3em;
+  }
+  .results {
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+    grid-gap: 10px;
+  }
+
+  .result {
+    display: grid;
+    place-items: center;
+    background-image: url("./Images/dark-honeycomb.png");
+    border: 1px solid black;
+    width: 100px;
+    height: 125px;
+    font-size: 0.7em;
+    box-shadow: 5px 5px 15px black, inset 0px 0px 2px 2px black;
+  }
+  .spriter {
+    width: 90px;
+  }
+}
+
+
 @media only screen and (max-width: 600px) {
   body {
     background-image: url("https://wallpapercave.com/wp/wp2113320.jpg");
@@ -257,3 +299,4 @@ input[type="search"]:hover {
     width: 90px;
   }
 }
+
