@@ -1,26 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Poke from "./Images/Pokeball.svg";
 import { Link } from "react-router-dom";
 import "./Type.css";
-import Normal from "./Images/normal_icon.jpg";
-import Bug from "./Images/bug_icon.jpg";
-import Dark from "./Images/dark_icon.jpg";
-import Dragon from "./Images/dragon_icon.jpg";
-import Electric from "./Images/electric_icon.jpg";
-import Fairy from "./Images/fairy_icon.jpg";
-import Fighting from "./Images/fighting_icon.jpg";
-import Fire from "./Images/fire_icon.jpg";
-import Flying from "./Images/flying_icon.jpg";
-import Ghost from "./Images/ghost_icon.jpg";
-import Grass from "./Images/grass_icon.jpg";
-import Ground from "./Images/ground_icon.jpg";
-import Ice from "./Images/ice_icon.jpg";
-import Poison from "./Images/poison_icon.jpg";
-import Psychic from "./Images/psychic_icon.jpg";
-import Steel from "./Images/steel_icon.jpg";
-import Rock from "./Images/rock_icon.jpg";
-import Water from "./Images/water_icon.jpg";
 import { ScaleLoader } from 'react-spinners';
 
 class Type extends React.Component {
@@ -133,13 +114,13 @@ class Type extends React.Component {
       <div>
         <div id="navbars">
           <div id="pokeball1">
-            <img id="Ball" src={Poke} alt="location" height="90" width="90" />
+            <img id="Ball" src="/images/Pokeball.svg" alt="location" height="90" width="90" />
           </div>
           <div id="navbar">
             <Navbar />
           </div>
           <div id="pokeball2">
-            <img id="Ball2" src={Poke} alt="location" height="90" width="90" />
+            <img id="Ball2" src="/images/Pokeball.svg" alt="location" height="90" width="90" />
           </div>
         </div>
         <h1>Search Type!</h1>
@@ -148,7 +129,7 @@ class Type extends React.Component {
           <Link to={`/type/normal`}>
             <img
               className="type_icon"
-              src={Normal}
+              src="/images/types/normal_icon.jpg"
               onClick={() => this.handleParameter("normal")}
               alt="normal"
             />
@@ -156,7 +137,7 @@ class Type extends React.Component {
           <Link to={`/type/bug`}>
             <img
               className="type_icon"
-              src={Bug}
+              src="/images/types/bug_icon.jpg"
               onClick={() => this.handleParameter("bug")}
               alt="bug"
             />
@@ -164,7 +145,7 @@ class Type extends React.Component {
           <Link to={`/type/dark`}>
             <img
               className="type_icon"
-              src={Dark}
+              src="/images/types/dark_icon.jpg"
               onClick={() => this.handleParameter("dark")}
               alt="dark"
             />
@@ -172,7 +153,7 @@ class Type extends React.Component {
           <Link to={`/type/dragon`}>
             <img
               className="type_icon"
-              src={Dragon}
+              src="/images/types/dragon_icon.jpg"
               onClick={() => this.handleParameter("dragon")}
               alt="dragon"
             />
@@ -180,7 +161,7 @@ class Type extends React.Component {
           <Link to={`/type/electric`}>
             <img
               className="type_icon"
-              src={Electric}
+              src="/images/types/electric_icon.jpg"
               onClick={() => this.handleParameter("electric")}
               alt="electric"
             />
@@ -188,7 +169,7 @@ class Type extends React.Component {
           <Link to={`/type/fairy`}>
             <img
               className="type_icon"
-              src={Fairy}
+              src="/images/types/fairy_icon.jpg"
               onClick={() => this.handleParameter("fairy")}
               alt="fairy"
             />
@@ -196,7 +177,7 @@ class Type extends React.Component {
           <Link to={`/type/fighting`}>
             <img
               className="type_icon"
-              src={Fighting}
+              src="/images/types/fighting_icon.jpg"
               onClick={() => this.handleParameter("fighting")}
               alt="fighting"
             />
@@ -204,7 +185,7 @@ class Type extends React.Component {
           <Link to={`/type/fire`}>
             <img
               className="type_icon"
-              src={Fire}
+              src="/images/types/fire_icon.jpg"
               onClick={() => this.handleParameter("fire")}
               alt="fighting"
             />
@@ -212,7 +193,7 @@ class Type extends React.Component {
           <Link to={`/type/flying`}>
             <img
               className="type_icon"
-              src={Flying}
+              src="/images/types/flying_icon.jpg"
               onClick={() => this.handleParameter("flying")}
               alt="flying"
             />
@@ -220,7 +201,7 @@ class Type extends React.Component {
           <Link to={`/type/ghost`}>
             <img
               className="type_icon"
-              src={Ghost}
+              src="/images/types/ghost_icon.jpg"
               onClick={() => this.handleParameter("ghost")}
               alt="ghost"
             />
@@ -228,7 +209,7 @@ class Type extends React.Component {
           <Link to={`/type/grass`}>
             <img
               className="type_icon"
-              src={Grass}
+              src="/images/types/grass_icon.jpg"
               onClick={() => this.handleParameter("grass")}
               alt="grass"
             />
@@ -236,7 +217,7 @@ class Type extends React.Component {
           <Link to={`/type/ground`}>
             <img
               className="type_icon"
-              src={Ground}
+              src="/images/types/ground_icon.jpg"
               onClick={() => this.handleParameter("ground")}
               alt="ground"
             />
@@ -244,7 +225,7 @@ class Type extends React.Component {
           <Link to={`/type/ice`}>
             <img
               className="type_icon"
-              src={Ice}
+              src="/images/types/ice_icon.jpg"
               onClick={() => this.handleParameter("ice")}
               alt="ice"
             />
@@ -252,7 +233,7 @@ class Type extends React.Component {
           <Link to={`/type/poison`}>
             <img
               className="type_icon"
-              src={Poison}
+              src="/images/types/poison_icon.jpg"
               onClick={() => this.handleParameter("poison")}
               alt="poison"
             />
@@ -260,7 +241,7 @@ class Type extends React.Component {
           <Link to={`/type/psychic`}>
             <img
               className="type_icon"
-              src={Psychic}
+              src="/images/types/psychic_icon.jpg"
               onClick={() => this.handleParameter("psychic")}
               alt="psychic"
             />
@@ -268,7 +249,7 @@ class Type extends React.Component {
           <Link to={`/type/steel`}>
             <img
               className="type_icon"
-              src={Steel}
+              src="/images/types/steel_icon.jpg"
               onClick={() => this.handleParameter("steel")}
               alt="steel"
             />
@@ -276,7 +257,7 @@ class Type extends React.Component {
           <Link to={`/type/rock`}>
             <img
               className="type_icon"
-              src={Rock}
+              src="/images/types/rock_icon.jpg"
               onClick={() => this.handleParameter("rock")}
               alt="rock"
             />
@@ -284,7 +265,7 @@ class Type extends React.Component {
           <Link to={`/type/water`}>
             <img
               className="type_icon"
-              src={Water}
+              src="/images/types/water_icon.jpg"
               onClick={() => this.handleParameter("water")}
               alt="water"
             />

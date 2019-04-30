@@ -1,22 +1,19 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import "./Home.css";
-import Pikachu from "./Images/pikachu_waving.gif";
-import Poke from "./Images/Pokeball.svg";
-import Unknown from "./Images/unknown.gif";
 
 const Home = () => {
   return (
     <React.Fragment>
       <div id="navbars">
         <div id="pokeball1">
-          <img id="Ball" src={Poke} alt="location" height="90" width="90" />
+          <img id="Ball" src="/images/Pokeball.svg" alt="spinning pokeball" height="90" width="90" />
         </div>
         <div id="navbar">
           <Navbar />
         </div>
         <div id="pokeball2">
-          <img id="Ball2" src={Poke} alt="location" height="90" width="90" />
+          <img id="Ball2" src="/images/Pokeball.svg" alt="spinning pokeball" height="90" width="90" />
         </div>
       </div>
       <div id="title">
@@ -33,7 +30,7 @@ const Home = () => {
 
         <div id="center">
           <p>Did you know?</p>
-          <img id="unknown" src={Unknown} alt="unknown" />
+          <img id="unknown" src="/images/unknown.gif" alt="unknown" />
           <p>
             The Pokemon franchise is the HIGHEST-Grossing entertainment
             franchise of all time!!! Since it’s creation in 1996 Pokemon is
@@ -48,7 +45,7 @@ const Home = () => {
       <div id="img-wrapper">
         <img
           id="Pikachu"
-          src={Pikachu}
+          src="/images/pikachu_waving.gif"
           alt="pikachu"
           height="250"
           width="330"

@@ -71,7 +71,7 @@ h1 {
 }
 
 #left {
-  background-image: url("./Images/light-honeycomb.png");
+  background-image: url("/images/light-honeycomb.png");
   border: 2px solid black;
   padding: 0 20px;
   display: grid;
@@ -85,7 +85,7 @@ h1 {
   display: grid;
   justify-items: center;
   grid-auto-flow: row;
-  background-image: url("./Images/dark-honeycomb.png");
+  background-image: url("/images/dark-honeycomb.png");
   border: 2px solid black;
   font-family: "Roboto", sans-serif;
   font-size: 20px;
@@ -147,7 +147,7 @@ h1 {
 .result {
   display: grid;
   place-items: center;
-  background-image: url("./Images/dark-honeycomb.png");
+  background-image: url("/images/dark-honeycomb.png");
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 10px 10px 50px black, inset 0px 0px 2px 2px black;
@@ -161,7 +161,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 15px;
-  background-image: url("./Images/dark-honeycomb.png");
+  background-image: url("/images/dark-honeycomb.png");
   border: 1px solid black;
   padding: 10px 20px;
   border-radius: 10px;
@@ -176,7 +176,7 @@ h1 {
 
 .name-result {
   width: fit-content;
-  background-image: url("./Images/light-honeycomb.png");
+  background-image: url("/images/light-honeycomb.png");
   border: 1px solid black;
   padding: 10px 20px;
   border-radius: 10px;
@@ -184,7 +184,7 @@ h1 {
 }
 
 .moveset-text {
-  background-image: url("./Images/light-honeycomb.png");
+  background-image: url("/images/light-honeycomb.png");
   border: 1px solid black;
   padding: 10px 20px;
   border-radius: 10px;
@@ -249,7 +249,7 @@ input[type="search"]:hover {
   .result {
     display: grid;
     place-items: center;
-    background-image: url("./Images/dark-honeycomb.png");
+    background-image: url("/images/dark-honeycomb.png");
     border: 1px solid black;
     width: 100px;
     height: 125px;
@@ -288,7 +288,7 @@ input[type="search"]:hover {
   .result {
     display: grid;
     place-items: center;
-    background-image: url("./Images/dark-honeycomb.png");
+    background-image: url("/images/dark-honeycomb.png");
     border: 1px solid black;
     width: 100px;
     height: 125px;

@@ -1,7 +1,6 @@
 import React from "react";
 import "./move.css";
 import Navbar from "../components/Navbar";
-import Poke from "./Images/Pokeball.svg";
 import { Link } from "react-router-dom";
 import { ScaleLoader } from 'react-spinners';
 
@@ -121,16 +120,16 @@ class Move extends React.Component {
               loading={this.state.loading}
             />
           </div>
-        </div> 
+        </div>
         <div id="navbars">
           <div id="pokeball1">
-            <img id="Ball" src={Poke} alt="location" height="90" width="90" />
+            <img id="Ball" src="/images/Pokeball.svg" alt="location" height="90" width="90" />
           </div>
           <div id="navbar">
             <Navbar />
           </div>
           <div id="pokeball2">
-            <img id="Ball2" src={Poke} alt="location" height="90" width="90" />
+            <img id="Ball2" src="/images/Pokeball.svg" alt="location" height="90" width="90" />
           </div>
         </div>
         <h1>Search Moves!</h1>
