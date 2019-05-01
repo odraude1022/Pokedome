@@ -17,7 +17,7 @@ class Type extends React.Component {
     sprites: [],
     loading: true
   };
-//hi
+
   componentDidMount() {
     const type = this.props.match.params.type;
     if (type === "search") {
