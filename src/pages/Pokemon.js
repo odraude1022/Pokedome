@@ -2,15 +2,14 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import "./Name.css";
 import { Link } from "react-router-dom";
-import PokemonSearchBox from "../components/PokemonSearchBox"
+import SearchBox from "../components/Pokemon/SearchBox"
 
 
 let pokemonNames = [];
-let pokemonObjects;
 fetch(`https://pokeapi.co/api/v2/pokemon/?limit=964`)
   .then(res => res.json())
   .then(res => {
-    res.results.map(mon => {
+    res.results.forEach(mon => {
       pokemonNames.push(mon.name);
     });
   });
@@ -97,13 +96,13 @@ class Pokemon extends React.Component {
       <div>
         <Navbar />
         <h1>Search Pokemon By Name!</h1>
-        <PokemonSearchBox
+        <SearchBox
           handleSubmit={this.handleSubmit}
           query={this.state.query}
           handleInput={this.handleInput}
           suggestions={this.state.suggestions}
           handleFetch={this.handleFetch}/>
-          
+
         {this.state.pokemon.id && this.state.name && (
           <h1>
             #{this.state.pokemon.id}: {this.capitalize(this.state.name)}{" "}
