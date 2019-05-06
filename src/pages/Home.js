@@ -9,7 +9,7 @@ const Home = () => {
       <div id="title">
         <h1 className="blinker">Welcome to Poke Dome!</h1>
       </div>
-      <div class="info">
+      <div className="info">
         <div id="left">
           <p>
             Are you new to Pokemon?! This is the website for you! Here at Poke
