@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import "./Name.css";
 import { Link } from "react-router-dom";
+import PokemonSearchBox from "../components/PokemonSearchBox"
 
 
 let pokemonNames = [];
@@ -96,28 +97,13 @@ class Pokemon extends React.Component {
       <div>
         <Navbar />
         <h1>Search Pokemon By Name!</h1>
-        <div className="searchbox">
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="search"
-              value={this.state.query}
-              onChange={this.handleInput}
-            />
-            <ul className="suggestions">
-              {this.state.suggestions.map(suggestion => {
-                return (
-                  <li
-                    className="list-items"
-                    key={suggestion}
-                    onClick={() => this.handleFetch(suggestion)}
-                  >
-                    {suggestion}
-                  </li>
-                );
-              })}
-            </ul>
-          </form>
-        </div>
+        <PokemonSearchBox
+          handleSubmit={this.handleSubmit}
+          query={this.state.query}
+          handleInput={this.handleInput}
+          suggestions={this.state.suggestions}
+          handleFetch={this.handleFetch}/>
+          
         {this.state.pokemon.id && this.state.name && (
           <h1>
             #{this.state.pokemon.id}: {this.capitalize(this.state.name)}{" "}
