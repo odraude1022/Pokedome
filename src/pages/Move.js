@@ -121,17 +121,7 @@ class Move extends React.Component {
             />
           </div>
         </div>
-        <div id="navbars">
-          <div id="pokeball1">
-            <img id="Ball" src="/images/Pokeball.svg" alt="location" height="90" width="90" />
-          </div>
-          <div id="navbar">
-            <Navbar />
-          </div>
-          <div id="pokeball2">
-            <img id="Ball2" src="/images/Pokeball.svg" alt="location" height="90" width="90" />
-          </div>
-        </div>
+        <Navbar />
         <h1>Search Moves!</h1>
         <div className="searchbox">
           <form onSubmit={this.handleSubmit}>

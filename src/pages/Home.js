@@ -5,17 +5,7 @@ import "./Home.css";
 const Home = () => {
   return (
     <React.Fragment>
-      <div id="navbars">
-        <div id="pokeball1">
-          <img id="Ball" src="/images/Pokeball.svg" alt="spinning pokeball" height="90" width="90" />
-        </div>
-        <div id="navbar">
-          <Navbar />
-        </div>
-        <div id="pokeball2">
-          <img id="Ball2" src="/images/Pokeball.svg" alt="spinning pokeball" height="90" width="90" />
-        </div>
-      </div>
+      <Navbar />
       <div id="title">
         <h1 className="blinker">Welcome to Poke Dome!</h1>
       </div>

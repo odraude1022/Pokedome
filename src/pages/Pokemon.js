@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import "./Name.css";
 import { Link } from "react-router-dom";
 
+
 let pokemonNames = [];
 let pokemonObjects;
 fetch(`https://pokeapi.co/api/v2/pokemon/?limit=964`)
@@ -93,17 +94,7 @@ class Pokemon extends React.Component {
     const { pokemon } = this.state;
     return (
       <div>
-        <div id="navbars">
-          <div id="pokeball1">
-            <img id="Ball" src="/images/Pokeball.svg" alt="location" height="90" width="90" />
-          </div>
-          <div id="navbar">
-            <Navbar />
-          </div>
-          <div id="pokeball2">
-            <img id="Ball2" src="/images/Pokeball.svg" alt="location" height="90" width="90" />
-          </div>
-        </div>
+        <Navbar />
         <h1>Search Pokemon By Name!</h1>
         <div className="searchbox">
           <form onSubmit={this.handleSubmit}>
