@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import "./Name.css";
 import { Link } from "react-router-dom";
 import SearchBox from "../components/Pokemon/SearchBox"
+import Info from "../components/Pokemon/Info"
 
 
 let pokemonNames = [];
@@ -101,74 +102,21 @@ class Pokemon extends React.Component {
           query={this.state.query}
           handleInput={this.handleInput}
           suggestions={this.state.suggestions}
-          handleFetch={this.handleFetch}/>
+          handleFetch={this.handleFetch}
+        />
 
         {this.state.pokemon.id && this.state.name && (
           <h1>
             #{this.state.pokemon.id}: {this.capitalize(this.state.name)}{" "}
           </h1>
         )}
+
+        {/*some pokemon do not have an id so we just display the name*/}
+
         {!this.state.pokemon.id && this.state.name && (
           <h1>{this.capitalize(this.state.name)}</h1>
         )}
-        {Object.keys(pokemon).length > 0 && (
-          <div>
-            <div className="name-results">
-              <div className="name-result">
-                <div className="spritez">
-                  {this.state.pokemon.sprites.front_default && (
-                    <img
-                      width="150px"
-                      src={this.state.pokemon.sprites.front_default}
-                      alt="sprite of pokemon from the front"
-                    />
-                  )}
-                  {this.state.pokemon.sprites.back_default && (
-                    <img
-                      width="150px"
-                      src={this.state.pokemon.sprites.back_default}
-                      alt="sprite of pokemon from the back"
-                    />
-                  )}
-                </div>
-                <p>
-                  Type:
-                  {pokemon.types
-                    .map(type => (
-                      <Link key={type.type.name} to={`/type/${type.type.name}`}>
-                        {this.capitalize(type.type.name)}
-                      </Link>
-                    ))
-                    .reduce((prev, curr) => [prev, " | ", curr])}
-                </p>
-                <h2>Base Stats</h2>
-                <ul>
-                  {pokemon.stats.map(stat => (
-                    <li key={stat.stat.name}>{`${this.capitalize(
-                      stat.stat.name
-                    )}: ${stat.base_stat}`}</li>
-                  ))}
-                </ul>
-              </div>
-              <h2 className="moveset-text">Moveset</h2>
-            </div>
-            <div className="move-results">
-              {pokemon.moves
-                .sort((a, b) => {
-                  if (a.move.name < b.move.name) return -1;
-                  if (a.move.name > b.move.name) return 1;
-                  return 0;
-                })
-                .map(move => (
-                  <div key={move.move.name}>
-                    <Link to={`/move/${move.move.name}`}>
-                      {this.capitalize(move.move.name)}
-                    </Link>
-                  </div>
-                ))}
-            </div>
-          </div>
-        )}
+        <Info pokemon={this.state.pokemon} capitalize={this.capitalize}/>
       </div>
     );
   }
