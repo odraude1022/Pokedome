@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import "./Type.css";
-import { ScaleLoader } from 'react-spinners';
-import Buttons from "./Buttons"
+import Loader from "../components/Type/Loader"
+import Buttons from "../components//Type/Buttons"
 
 class Type extends React.Component {
   state = {
@@ -100,16 +100,7 @@ class Type extends React.Component {
   render() {
     const { name, moves, sprites, isLoaded } = this.state;
     if (!isLoaded) {
-      return <div className="loader">
-              <div>
-                <ScaleLoader
-                  className="pacman-load"
-                  color={'#F8E71C'}
-                  loading={this.state.loading}
-                  height={"50"}
-                />
-              </div>
-            </div>;
+      return <Loader loading={this.state.loading}/>
     }
     return (
       <div>
