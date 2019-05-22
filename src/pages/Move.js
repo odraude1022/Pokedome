@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import Loader from "../components/Move/Loader"
 import SearchBox from "../components/Move/SearchBox"
+import Info from "../components/Move/Info"
 
 let moveNames = [];
 fetch(`https://pokeapi.co/api/v2/move/?limit=746`)
@@ -122,24 +123,16 @@ class Move extends React.Component {
           suggestions={this.state.suggestions}
           handleFetch={this.handleFetch}
           />
-        {name && <h1>{this.capitalize(name)} </h1>}
-        {move && (
-          <div className="name-results">
-            <div className="name-result">
-              <p>
-                Type:{" "}
-                <Link to={`/type/${this.state.type}`}>
-                  {this.capitalize(this.state.type)}
-                </Link>
-              </p>
-              <p>Power: {power}</p>
-              <p>Accuracy: {accuracy}</p>
-              <p>Max PP: {pp}</p>
-              <p>Category: {this.capitalize(damage_class)}</p>
-              <p>Effect: {effect}</p>
-            </div>
-          </div>
-        )}
+        <Info name={name}
+            move={move}
+            type={this.state.type}
+            power={power}
+            accuracy={accuracy}
+            pp={pp}
+            damage_class={damage_class}
+            effect={effect}
+            capitalize={this.capitalize}
+            />
       </div>
     );
   }
