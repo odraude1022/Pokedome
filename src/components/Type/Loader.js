@@ -9,7 +9,7 @@ const Loader = props => {
                 className="pacman-load"
                 color={'#F8E71C'}
                 loading={props.loading}
-                height={"50"}
+                height={50}
               />
             </div>
     </div>
