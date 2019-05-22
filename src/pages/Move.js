@@ -2,13 +2,14 @@ import React from "react";
 import "./move.css";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
-import { ScaleLoader } from 'react-spinners';
+import Loader from "../components/Move/Loader"
+import SearchBox from "../components/Move/SearchBox"
 
 let moveNames = [];
 fetch(`https://pokeapi.co/api/v2/move/?limit=746`)
   .then(res => res.json())
   .then(res => {
-    res.results.map(move => {
+    res.results.forEach(move => {
       moveNames.push(move.name);
     });
   })
@@ -111,41 +112,16 @@ class Move extends React.Component {
     } = this.state;
     return (
       <div>
-        <div className="loader">
-          <div>
-            <ScaleLoader
-              className="pacman-load"
-              color={'#F8E71C'}
-              size={"40"}
-              loading={this.state.loading}
-            />
-          </div>
-        </div>
+        <Loader loading={loading}/> {/* This might not be doing anything. I'll check later */}
         <Navbar />
         <h1>Search Moves!</h1>
-        <div className="searchbox">
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="search"
-              value={this.state.query}
-              onChange={this.handleInput}
-            />
-
-            <ul className="suggestions">
-              {this.state.suggestions.map(suggestion => {
-                return (
-                  <li
-                    className="list-items"
-                    key={suggestion}
-                    onClick={() => this.handleFetch(suggestion)}
-                  >
-                    {suggestion}
-                  </li>
-                );
-              })}
-            </ul>
-          </form>
-        </div>
+        <SearchBox
+          handleSubmit={this.handleSubmit}
+          query={this.state.query}
+          handleInput={this.handleInput}
+          suggestions={this.state.suggestions}
+          handleFetch={this.handleFetch}
+          />
         {name && <h1>{this.capitalize(name)} </h1>}
         {move && (
           <div className="name-results">
