@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import "./Type.css";
 import { ScaleLoader } from 'react-spinners';
+import Buttons from "./Buttons"
 
 class Type extends React.Component {
   state = {
