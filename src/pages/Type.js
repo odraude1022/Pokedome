@@ -115,7 +115,7 @@ class Type extends React.Component {
               <h2 className="moveset-text">Pokemon:</h2>
             </div>
             <div className="results">
-              {sprites.map((sprite, i) => {
+              {sprites.map(sprite => {
                 return (
                   <div className="result" key={sprite.name}>
                     <Link to={`/pokemon/${sprite.name}`}>
