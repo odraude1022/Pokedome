@@ -5,6 +5,7 @@ import "./Type.css";
 import Loader from "../components/Type/Loader"
 import Buttons from "../components/Type/Buttons"
 import PokemonResults from "../components/Type/PokemonResults"
+import MoveResults from "../components/Type/MoveResults"
 
 class Type extends React.Component {
   state = {
@@ -116,22 +117,10 @@ class Type extends React.Component {
               <h2 className="moveset-text">Pokemon:</h2>
             </div>
             <PokemonResults sprites={sprites} capitalize={this.capitalize}/>
-            <h2>Moves:</h2>
-            <div className="move-results">
-              {moves
-                .sort((a, b) => {
-                  if (a.name < b.name) return -1;
-                  if (a.name > b.name) return 1;
-                  return 0;
-                })
-                .map(move => (
-                  <div key={move.name}>
-                    <Link to={`/move/${move.name}`}>
-                      {this.capitalize(move.name)}
-                    </Link>
-                  </div>
-                ))}
+            <div className="poke-center">
+              <h2 className="moveset-text">Moves:</h2>
             </div>
+            <MoveResults moves={moves} capitalize={this.capitalize}/>
           </div>
         )}
       </div>
