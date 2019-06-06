@@ -2,7 +2,10 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import "./Type.css";
-import { ScaleLoader } from 'react-spinners';
+import Loader from "../components/Type/Loader"
+import Buttons from "../components/Type/Buttons"
+import PokemonResults from "../components/Type/PokemonResults"
+import MoveResults from "../components/Type/MoveResults"
 
 class Type extends React.Component {
   state = {
@@ -99,168 +102,13 @@ class Type extends React.Component {
   render() {
     const { name, moves, sprites, isLoaded } = this.state;
     if (!isLoaded) {
-      return <div className="loader">
-              <div>
-                <ScaleLoader
-                  className="pacman-load"
-                  color={'#F8E71C'}
-                  loading={this.state.loading}
-                  height={"50"}
-                />
-              </div>
-            </div>;
+      return <Loader loading={this.state.loading}/>
     }
     return (
       <div>
         <Navbar />
         <h1>Search Type!</h1>
-
-        <div id="type_icons">
-          <Link to={`/type/normal`}>
-            <img
-              className="type_icon"
-              src="/images/types/normal_icon.jpg"
-              onClick={() => this.handleParameter("normal")}
-              alt="normal"
-            />
-          </Link>
-          <Link to={`/type/bug`}>
-            <img
-              className="type_icon"
-              src="/images/types/bug_icon.jpg"
-              onClick={() => this.handleParameter("bug")}
-              alt="bug"
-            />
-          </Link>
-          <Link to={`/type/dark`}>
-            <img
-              className="type_icon"
-              src="/images/types/dark_icon.jpg"
-              onClick={() => this.handleParameter("dark")}
-              alt="dark"
-            />
-          </Link>
-          <Link to={`/type/dragon`}>
-            <img
-              className="type_icon"
-              src="/images/types/dragon_icon.jpg"
-              onClick={() => this.handleParameter("dragon")}
-              alt="dragon"
-            />
-          </Link>
-          <Link to={`/type/electric`}>
-            <img
-              className="type_icon"
-              src="/images/types/electric_icon.jpg"
-              onClick={() => this.handleParameter("electric")}
-              alt="electric"
-            />
-          </Link>
-          <Link to={`/type/fairy`}>
-            <img
-              className="type_icon"
-              src="/images/types/fairy_icon.jpg"
-              onClick={() => this.handleParameter("fairy")}
-              alt="fairy"
-            />
-          </Link>
-          <Link to={`/type/fighting`}>
-            <img
-              className="type_icon"
-              src="/images/types/fighting_icon.jpg"
-              onClick={() => this.handleParameter("fighting")}
-              alt="fighting"
-            />
-          </Link>
-          <Link to={`/type/fire`}>
-            <img
-              className="type_icon"
-              src="/images/types/fire_icon.jpg"
-              onClick={() => this.handleParameter("fire")}
-              alt="fighting"
-            />
-          </Link>
-          <Link to={`/type/flying`}>
-            <img
-              className="type_icon"
-              src="/images/types/flying_icon.jpg"
-              onClick={() => this.handleParameter("flying")}
-              alt="flying"
-            />
-          </Link>
-          <Link to={`/type/ghost`}>
-            <img
-              className="type_icon"
-              src="/images/types/ghost_icon.jpg"
-              onClick={() => this.handleParameter("ghost")}
-              alt="ghost"
-            />
-          </Link>
-          <Link to={`/type/grass`}>
-            <img
-              className="type_icon"
-              src="/images/types/grass_icon.jpg"
-              onClick={() => this.handleParameter("grass")}
-              alt="grass"
-            />
-          </Link>
-          <Link to={`/type/ground`}>
-            <img
-              className="type_icon"
-              src="/images/types/ground_icon.jpg"
-              onClick={() => this.handleParameter("ground")}
-              alt="ground"
-            />
-          </Link>
-          <Link to={`/type/ice`}>
-            <img
-              className="type_icon"
-              src="/images/types/ice_icon.jpg"
-              onClick={() => this.handleParameter("ice")}
-              alt="ice"
-            />
-          </Link>
-          <Link to={`/type/poison`}>
-            <img
-              className="type_icon"
-              src="/images/types/poison_icon.jpg"
-              onClick={() => this.handleParameter("poison")}
-              alt="poison"
-            />
-          </Link>
-          <Link to={`/type/psychic`}>
-            <img
-              className="type_icon"
-              src="/images/types/psychic_icon.jpg"
-              onClick={() => this.handleParameter("psychic")}
-              alt="psychic"
-            />
-          </Link>
-          <Link to={`/type/steel`}>
-            <img
-              className="type_icon"
-              src="/images/types/steel_icon.jpg"
-              onClick={() => this.handleParameter("steel")}
-              alt="steel"
-            />
-          </Link>
-          <Link to={`/type/rock`}>
-            <img
-              className="type_icon"
-              src="/images/types/rock_icon.jpg"
-              onClick={() => this.handleParameter("rock")}
-              alt="rock"
-            />
-          </Link>
-          <Link to={`/type/water`}>
-            <img
-              className="type_icon"
-              src="/images/types/water_icon.jpg"
-              onClick={() => this.handleParameter("water")}
-              alt="water"
-            />
-          </Link>
-        </div>
+        <Buttons handleParameter={this.handleParameter}/>
 
         {name && <h1>{this.capitalize(name)} </h1>}
         {this.state.moves && (
@@ -268,40 +116,11 @@ class Type extends React.Component {
             <div className="poke-center">
               <h2 className="moveset-text">Pokemon:</h2>
             </div>
-            <div className="results">
-              {sprites.map((sprite, i) => {
-                return (
-                  <div className="result" key={sprite.name}>
-                    <Link to={`/pokemon/${sprite.name}`}>
-                      {this.capitalize(sprite.name)}
-                      {sprite.sprites.front_default && (
-                        <img
-                          className="spriter"
-                          src={sprite.sprites.front_default}
-                          alt="test"
-                        />
-                      )}
-                    </Link>
-                  </div>
-                );
-              })}{" "}
+            <PokemonResults sprites={sprites} capitalize={this.capitalize}/>
+            <div className="poke-center">
+              <h2 className="moveset-text">Moves:</h2>
             </div>
-            <h2>Moves:</h2>
-            <div className="move-results">
-              {moves
-                .sort((a, b) => {
-                  if (a.name < b.name) return -1;
-                  if (a.name > b.name) return 1;
-                  return 0;
-                })
-                .map(move => (
-                  <div key={move.name}>
-                    <Link to={`/move/${move.name}`}>
-                      {this.capitalize(move.name)}
-                    </Link>
-                  </div>
-                ))}
-            </div>
+            <MoveResults moves={moves} capitalize={this.capitalize}/>
           </div>
         )}
       </div>
