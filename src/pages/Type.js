@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import "./Type.css";
 import Loader from "../components/Type/Loader"
-import Buttons from "../components//Type/Buttons"
+import Buttons from "../components/Type/Buttons"
+import PokemonResults from "../components/Type/PokemonResults"
 
 class Type extends React.Component {
   state = {
@@ -114,24 +115,7 @@ class Type extends React.Component {
             <div className="poke-center">
               <h2 className="moveset-text">Pokemon:</h2>
             </div>
-            <div className="results">
-              {sprites.map(sprite => {
-                return (
-                  <div className="result" key={sprite.name}>
-                    <Link to={`/pokemon/${sprite.name}`}>
-                      {this.capitalize(sprite.name)}
-                      {sprite.sprites.front_default && (
-                        <img
-                          className="spriter"
-                          src={sprite.sprites.front_default}
-                          alt="test"
-                        />
-                      )}
-                    </Link>
-                  </div>
-                );
-              })}{" "}
-            </div>
+            <PokemonResults sprites={sprites} capitalize={this.capitalize}/>
             <h2>Moves:</h2>
             <div className="move-results">
               {moves
