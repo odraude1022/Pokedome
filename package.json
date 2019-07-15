@@ -4,18 +4,16 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
-    "js-yaml": "^3.13.1",
-    "pokedex-promise-v2": "^3.1.1",
-    "react": "^16.8.2",
+    "react": "^16.8.6",
     "react-addons-css-transition-group": "^15.6.2",
-    "react-dom": "^16.8.2",
+    "react-dom": "^16.8.6",
     "react-image": "^2.0.0",
     "react-images": "^0.5.19",
     "react-player": "^1.9.3",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
     "react-simple-animate": "^2.6.4",
-    "react-spinners": "^0.5.1"
+    "react-spinners": "^0.5.12"
   },
   "scripts": {
     "start": "react-scripts start",
