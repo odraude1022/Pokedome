@@ -1,16 +1,15 @@
 import React from "react";
+import axios from 'axios'
 import "./move.css";
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
 import Loader from "../components/Move/Loader"
 import SearchBox from "../components/Move/SearchBox"
 import Info from "../components/Move/Info"
 
 let moveNames = [];
-fetch(`https://pokeapi.co/api/v2/move/?limit=746`)
-  .then(res => res.json())
+axios.get(`https://pokeapi.co/api/v2/move/?limit=746`)
   .then(res => {
-    res.results.forEach(move => {
+    res.data.results.forEach(move => {
       moveNames.push(move.name);
     });
   })
@@ -40,27 +39,26 @@ class Move extends React.Component {
     this.setState({loading: false})
   }
 
-  handleFetch = move => {
-    fetch(`https://pokeapi.co/api/v2/move/${move}`)
-      .then(res => res.json())
-      .then(result => {
-        this.setState({
-          move: result,
-          name: result.name,
-          type: result.type.name,
-          accuracy: result.accuracy,
-          damage_class: result.damage_class.name,
-          effect: result.effect_entries[0].effect
-            .replace("$effect_chance", result.effect_chance)
-            .replace("(100 - accuracy)", 100 - result.accuracy),
-          effect_chance: result.effect_chance,
-          power: result.power,
-          pp: result.pp,
-          query: "",
-          suggestions: []
-        });
-      })
-      .catch(error => {
+  handleFetch = async move => {
+    try{
+      const result = (await axios.get(`https://pokeapi.co/api/v2/move/${move}`)).data
+      this.setState({
+        move: result,
+        name: result.name,
+        type: result.type.name,
+        accuracy: result.accuracy,
+        damage_class: result.damage_class.name,
+        effect: result.effect_entries[0].effect
+          .replace("$effect_chance", result.effect_chance)
+          .replace("(100 - accuracy)", 100 - result.accuracy),
+        effect_chance: result.effect_chance,
+        power: result.power,
+        pp: result.pp,
+        query: "",
+        suggestions: []
+      });
+    }
+    catch(error) {
         this.setState({
           move: null,
           name: this.state.query ? "Not Found" : "",
@@ -73,7 +71,7 @@ class Move extends React.Component {
           query: "",
           suggestions: []
         });
-      });
+    }
   };
 
   capitalize = string => {

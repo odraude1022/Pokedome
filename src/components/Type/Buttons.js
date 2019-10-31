@@ -9,7 +9,7 @@ const Buttons = props => {
   return(
     <div id="type_icons">
       {types.map( type => (
-          <Button type={type} handleParameter={props.handleParameter} />
+          <Button key={type} type={type} handleParameter={props.handleParameter} />
       ))
       }
     </div>

@@ -15,7 +15,7 @@ const Info = props => {
                 {props.capitalize(type)}
               </Link>
             </p>
-            <p>Power: {props.power}</p>
+            <p>Power: {power}</p>
             <p>Accuracy: {accuracy}</p>
             <p>Max PP: {pp}</p>
             <p>Category: {props.capitalize(damage_class)}</p>

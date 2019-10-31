@@ -1,27 +1,22 @@
 import React from "react";
+import axios from 'axios'
 import Navbar from "../components/Navbar";
 import "./Name.css";
-import { Link } from "react-router-dom";
 import SearchBox from "../components/Pokemon/SearchBox"
 import Info from "../components/Pokemon/Info"
 
 
 let pokemonNames = [];
-fetch(`https://pokeapi.co/api/v2/pokemon/?limit=964`)
-  .then(res => res.json())
+axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=964`)
   .then(res => {
-    res.results.forEach(mon => {
+    res.data.results.forEach(mon => {
       pokemonNames.push(mon.name);
     });
   });
 
 class Pokemon extends React.Component {
   state = {
-    error: null,
     name: null,
-    types: null,
-    stats: null,
-    moves: null,
     pokemon: this.props.pokemon || {},
     query: "",
     suggestions: []
@@ -32,32 +27,24 @@ class Pokemon extends React.Component {
     this.handleFetch(name);
   }
 
-  handleFetch = name => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
-      .then(res => res.json())
-      .then(result => {
-        this.setState({
-          pokemon: result,
-          name: result.name,
-          types: result.types,
-          stats: result.stats,
-          moves: result.moves,
-          query: "",
-          suggestions: []
-        });
-      })
-      .catch(error => {
-        this.setState({
-          pokemon: {},
-          name: this.state.query ? "Not Found" : "",
-          error: error,
-          types: null,
-          stats: null,
-          moves: null,
-          query: "",
-          suggestions: []
-        });
+  handleFetch = async name => {
+    try {
+      const result = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)).data
+      this.setState({
+        pokemon: result,
+        name: result.name,
+        query: "",
+        suggestions: []
       });
+    }
+    catch(error) {
+      this.setState({
+            pokemon: {},
+            name: this.state.query ? "Not Found" : "",
+            query: "",
+            suggestions: []
+      });
+    }
   };
 
   capitalize = string => {
@@ -92,7 +79,7 @@ class Pokemon extends React.Component {
     this.handleFetch(this.state.query);
   };
   render() {
-    const { pokemon } = this.state;
+    const { pokemon, name } = this.state;
     return (
       <div>
         <Navbar />
@@ -105,18 +92,18 @@ class Pokemon extends React.Component {
           handleFetch={this.handleFetch}
         />
 
-        {this.state.pokemon.id && this.state.name && (
+        {pokemon.id && name && (
           <h1>
-            #{this.state.pokemon.id}: {this.capitalize(this.state.name)}{" "}
+            #{pokemon.id}: {this.capitalize(name)}{" "}
           </h1>
         )}
 
         {/*some pokemon do not have an id so we just display the name*/}
 
-        {!this.state.pokemon.id && this.state.name && (
-          <h1>{this.capitalize(this.state.name)}</h1>
+        {!pokemon.id && name && (
+          <h1>{this.capitalize(name)}</h1>
         )}
-        <Info pokemon={this.state.pokemon} capitalize={this.capitalize}/>
+        <Info pokemon={pokemon} capitalize={this.capitalize}/>
       </div>
     );
   }
