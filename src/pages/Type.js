@@ -31,16 +31,27 @@ class Type extends React.Component {
   }
 
   handleFetch = async type => {
-    const result = (await axios.get(`https://pokeapi.co/api/v2/type/${type}`)).data
-    const {name, damage_relations, game_indices, moves, pokemon} = result
-    let sprites = await Promise.all(pokemon.map(async mon => {
-      return (await axios.get(`https://pokeapi.co/api/v2/pokemon/${mon.pokemon.name}`)).data
-    }))
-    sprites = sprites.sort((a, b) => {
-      return a.id - b.id
-    });
-    this.setState({name, damage_relations, game_indices, moves, pokemon, sprites, isLoaded: true });
-    
+    try {
+      const result = (await axios.get(`https://pokeapi.co/api/v2/type/${type}`)).data
+      const {name, damage_relations, game_indices, moves, pokemon} = result
+      let sprites = await Promise.all(pokemon.map(async mon => {
+        return (await axios.get(`https://pokeapi.co/api/v2/pokemon/${mon.pokemon.name}`)).data
+      }))
+      sprites = sprites.sort((a, b) => {
+        return a.id - b.id
+      });
+      this.setState({name, damage_relations, game_indices, moves, pokemon, sprites, isLoaded: true });
+    }
+    catch(error) {
+      this.setState({
+        name: "",
+        pokemon: null,
+        moves: null,
+        sprites: [],
+        isLoaded: true,
+        loading: false
+      })
+    }
   };
 
   capitalize = string => {
