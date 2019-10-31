@@ -1,11 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
 import "./Type.css";
 import Loader from "../components/Type/Loader"
 import Buttons from "../components/Type/Buttons"
 import PokemonResults from "../components/Type/PokemonResults"
 import MoveResults from "../components/Type/MoveResults"
+import axios from 'axios'
 
 class Type extends React.Component {
   state = {
@@ -30,55 +30,17 @@ class Type extends React.Component {
     }
   }
 
-  handleFetch = type => {
-    fetch(`https://pokeapi.co/api/v2/type/${type}`)
-      .then(res => res.json())
-      .then(result => {
-        this.setState({
-          name: result.name,
-          damage_relations: result.damage_relations,
-          game_indices: result.game_indices,
-          moves: result.moves,
-          pokemon: result.pokemon,
-          sprites: []
-        });
-      })
-      .then(res => {
-        let pokemon = this.state.pokemon;
-        let length = pokemon.length;
-        let i = 0;
-        pokemon.map(mon => {
-          const name = mon.pokemon.name;
-          let sprites = this.state.sprites;
-          fetch(`https://pokeapi.co/api/v2/pokemon/${name}/`)
-            .then(res => res.json())
-            .then(result => sprites.push(result))
-            .then(result2 => {
-              this.setState({ sprites });
-              i++;
-              if (i === length) {
-                sprites = sprites.sort((a, b) => {
-                  let ida = a.id;
-                  let idb = b.id;
-                  if (ida < idb) return -1;
-                  if (ida > idb) return 1;
-                  return 0;
-                });
-                this.setState({ isLoaded: true, sprites });
-              }
-            });
-        });
-      })
-      .catch(error => {
-        this.setState({
-          name: "",
-          pokemon: null,
-          moves: null,
-          sprites: [],
-          isLoaded: true,
-          loading: false
-        });
-      });
+  handleFetch = async type => {
+    const result = (await axios.get(`https://pokeapi.co/api/v2/type/${type}`)).data
+    const {name, damage_relations, game_indices, moves, pokemon} = result
+    let sprites = await Promise.all(pokemon.map(async mon => {
+      return (await axios.get(`https://pokeapi.co/api/v2/pokemon/${mon.pokemon.name}`)).data
+    }))
+    sprites = sprites.sort((a, b) => {
+      return a.id - b.id
+    });
+    this.setState({name, damage_relations, game_indices, moves, pokemon, sprites, isLoaded: true });
+    
   };
 
   capitalize = string => {
