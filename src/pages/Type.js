@@ -37,9 +37,7 @@ class Type extends React.Component {
       let sprites = await Promise.all(pokemon.map(async mon => {
         return (await axios.get(`https://pokeapi.co/api/v2/pokemon/${mon.pokemon.name}`)).data
       }))
-      sprites = sprites.sort((a, b) => {
-        return a.id - b.id
-      });
+      sprites = sprites.sort((a, b) => a.id - b.id)
       this.setState({name, damage_relations, game_indices, moves, pokemon, sprites, isLoaded: true });
     }
     catch(error) {
