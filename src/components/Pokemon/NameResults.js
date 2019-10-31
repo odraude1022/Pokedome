@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "react-router-dom";
 import Sprites from "./Sprites"
 import PokeType from "./PokeType"
 import BaseStats from "./BaseStats"
